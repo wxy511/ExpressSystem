@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/api/dashboard.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1637743278477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1637743278477,
+            "name": "Commit-0",
+            "content": "/*\r\n * @Descripttion: 首页消息\r\n * @version: \r\n * @Author: Bing\r\n * @Date: 2020-12-14 10:12:48\r\n * @LastEditors: sueRimn\r\n * @LastEditTime: 2021-11-22 10:20:39\r\n */\r\nimport request from '@/utils/request'\r\n\r\n// export function exampleFunc(data) {\r\n//   return request({\r\n//     url: '/2049/',\r\n//     method: 'post',\r\n//     data\r\n//   })\r\n// } \r\nexport function dashboardSJ(data) {\r\n  return request({\r\n    url: '/2049/',\r\n    method: 'post',\r\n    data\r\n  })\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,330 @@
+{
+    "sourceFile": "src/api/user.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 78,
+            "patches": [
+                {
+                    "date": 1637577361657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1637577562580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n  * @LastEditTime: 2020-11-20 11:08:07\r\n  */\r\n import request from '@/utils/request'\r\n \r\n-export function login(data) {\r\n+export function loginN(data) {\r\n   return request({\r\n     url: '/1065',\r\n     method: 'post',\r\n     data\r\n"
+                },
+                {
+                    "date": 1637590091584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n  * @LastEditTime: 2020-11-20 11:08:07\r\n  */\r\n import request from '@/utils/request'\r\n \r\n-export function loginN(data) {\r\n+export function login(data) {\r\n   return request({\r\n     url: '/1065',\r\n     method: 'post',\r\n     data\r\n"
+                },
+                {
+                    "date": 1637629882631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,34 @@\n+/*\r\n+ * @Descripttion: \r\n+ * @version: \r\n+ * @Author: Bing\r\n+ * @Date: 2020-10-21 09:13:29\r\n+ * @LastEditors: sueRimn\r\n+ * @LastEditTime: 2020-11-20 11:08:07\r\n+ */\r\n+import request from '@/utils/request'\r\n+\r\n+export function login(data) {\r\n+  return request({\r\n+    url: '/express/api/1065',\r\n+    method: 'post',\r\n+    data\r\n+  })\r\n+}\r\n+\r\n+export function getInfo(token) {\r\n+  return request({\r\n+    url: '/s_get_user/',\r\n+    method: 'post',\r\n+    params: {\r\n+      token\r\n+    }\r\n+  })\r\n+}\r\n+\r\n+export function logout() {\r\n+  return request({\r\n+    url: '/vue-admin-template/user/ ',\r\n+    method: 'post'\r\n+  })\r\n+}\r\n"
+                },
+                {
+                    "date": 1637630010011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,42 +9,8 @@\n import request from '@/utils/request'\r\n \r\n export function login(data) {\r\n   return request({\r\n-    url: '/express/api/1065',\r\n-    method: 'post',\r\n-    data\r\n-  })\r\n-}\r\n-\r\n-export function getInfo(token) {\r\n-  return request({\r\n-    url: '/s_get_user/',\r\n-    method: 'post',\r\n-    params: {\r\n-      token\r\n-    }\r\n-  })\r\n-}\r\n-\r\n-export function logout() {\r\n-  return request({\r\n-    url: '/vue-admin-template/user/ ',\r\n-    method: 'post'\r\n-  })\r\n-}\r\n-/*\r\n- * @Descripttion: \r\n- * @version: \r\n- * @Author: Bing\r\n- * @Date: 2020-10-21 09:13:29\r\n- * @LastEditors: sueRimn\r\n- * @LastEditTime: 2020-11-20 11:08:07\r\n- */\r\n-import request from '@/utils/request'\r\n-\r\n-export function login(data) {\r\n-  return request({\r\n     url: '/1065',\r\n     method: 'post',\r\n     data\r\n   })\r\n"
+                },
+                {
+                    "date": 1637631599102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n import request from '@/utils/request'\r\n \r\n export function login(data) {\r\n   return request({\r\n-    url: '/1065',\r\n+    url: '/express/1065',\r\n     method: 'post',\r\n     data\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637631963810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n import request from '@/utils/request'\r\n \r\n export function login(data) {\r\n   return request({\r\n-    url: '/express/1065',\r\n+    url: '/1047',\r\n     method: 'post',\r\n     data\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637632096349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n import request from '@/utils/request'\r\n \r\n export function login(data) {\r\n   return request({\r\n-    url: '/1047',\r\n+    url: '/1047/',\r\n     method: 'post',\r\n     data\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637639913605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n import request from '@/utils/request'\r\n \r\n export function login(data) {\r\n   return request({\r\n-    url: '/1047/',\r\n+    url: '/1065/',\r\n     method: 'post',\r\n     data\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637653719650,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,15 +15,23 @@\n     data\r\n   })\r\n }\r\n \r\n-export function getInfo(token) {\r\n+// export function getInfo(token) {\r\n+//   return request({\r\n+//     url: '/s_get_user/',\r\n+//     method: 'post',\r\n+//     params: {\r\n+//       token\r\n+//     }\r\n+//   })\r\n+// }\r\n+\r\n+export function getInfo(data) {\r\n   return request({\r\n-    url: '/s_get_user/',\r\n+    url: '/1065/',\r\n     method: 'post',\r\n-    params: {\r\n-      token\r\n-    }\r\n+    data\r\n   })\r\n }\r\n \r\n export function logout() {\r\n"
+                },
+                {
+                    "date": 1637745831987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,4 +39,12 @@\n     url: '/vue-admin-template/user/ ',\r\n     method: 'post'\r\n   })\r\n }\r\n+//收件\r\n+export function receive() {\r\n+  return request({\r\n+    url: '/2049/',\r\n+    method: 'post',\r\n+    data\r\n+  })\r\n+}\r\n"
+                },
+                {
+                    "date": 1637746193150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,7 +44,7 @@\n export function receive() {\r\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n-    data\r\n+\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637746211211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,7 +44,7 @@\n export function receive() {\r\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n-\r\n+    data\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637746218863,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     method: 'post'\r\n   })\r\n }\r\n //收件\r\n-export function receive() {\r\n+export function receive(data) {\r\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n     data\r\n"
+                },
+                {
+                    "date": 1637746421489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,11 +40,29 @@\n     method: 'post'\r\n   })\r\n }\r\n //收件\r\n-export function receive(data) {\r\n+export function receive() {\r\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n-    data\r\n+    data: {\r\n+      \"companyID\": 5,\r\n+      \"companyName\": \"顺丰速运\",\r\n+      \"courierCode\": \"296091205687\",\r\n+      \"details\": \"文件\",\r\n+      \"cardholderid\": \"HQ2211\",\r\n+      \"email\": \"abel.wang@icdsecurity.com\",\r\n+      \"countryCode\": \"86\",\r\n+      \"phone\": \"17090020304\",\r\n+      \"name\": \"Abel王文龙\",\r\n+      \"branchID\": \"010\",\r\n+      \"areaid\": 1,\r\n+      \"pickupLocation\": \"前台\",\r\n+      \"timeLocal\": \"2020-05-12 21:09:00\",\r\n+      \"operName\": \"admin\",\r\n+      \"operID\": 1\r\n+\r\n+    }\r\n+\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637746468666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,23 +45,23 @@\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n     data: {\r\n-      \"companyID\": 5,\r\n-      \"companyName\": \"顺丰速运\",\r\n-      \"courierCode\": \"296091205687\",\r\n-      \"details\": \"文件\",\r\n-      \"cardholderid\": \"HQ2211\",\r\n-      \"email\": \"abel.wang@icdsecurity.com\",\r\n-      \"countryCode\": \"86\",\r\n-      \"phone\": \"17090020304\",\r\n-      \"name\": \"Abel王文龙\",\r\n-      \"branchID\": \"010\",\r\n-      \"areaid\": 1,\r\n-      \"pickupLocation\": \"前台\",\r\n-      \"timeLocal\": \"2020-05-12 21:09:00\",\r\n-      \"operName\": \"admin\",\r\n-      \"operID\": 1\r\n+      \"companyID\": \"\",\r\n+      \"companyName\": \"\",\r\n+      \"courierCode\": \"\",\r\n+      \"details\": \"\",\r\n+      \"cardholderid\": \"\",\r\n+      \"email\": \"\",\r\n+      \"countryCode\": \"\",\r\n+      \"phone\": \"\",\r\n+      \"name\": \"\",\r\n+      \"branchID\": \"\",\r\n+      \"areaid\": \"\",\r\n+      \"pickupLocation\": \"\",\r\n+      \"timeLocal\": \"\",\r\n+      \"operName\": \"\",\r\n+      \"operID\": \"\",\r\n \r\n     }\r\n \r\n   })\r\n"
+                },
+                {
+                    "date": 1637746508074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     method: 'post'\r\n   })\r\n }\r\n //收件\r\n-export function receive() {\r\n+export function receive(data) {\r\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n     data: {\r\n@@ -60,9 +60,8 @@\n       \"pickupLocation\": \"\",\r\n       \"timeLocal\": \"\",\r\n       \"operName\": \"\",\r\n       \"operID\": \"\",\r\n-\r\n     }\r\n \r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637746539098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     method: 'post'\r\n   })\r\n }\r\n //收件\r\n-export function receive(data) {\r\n+export function receive() {\r\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n     data: {\r\n"
+                },
+                {
+                    "date": 1637746595968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n     data: {\r\n-      \"companyID\": \"\",\r\n+      \"companyID\": \"1111\",\r\n       \"companyName\": \"\",\r\n       \"courierCode\": \"\",\r\n       \"details\": \"\",\r\n       \"cardholderid\": \"\",\r\n"
+                },
+                {
+                    "date": 1637746633796,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n     data: {\r\n-      \"companyID\": \"1111\",\r\n+      \"companyID\": 1,\r\n       \"companyName\": \"\",\r\n       \"courierCode\": \"\",\r\n       \"details\": \"\",\r\n       \"cardholderid\": \"\",\r\n"
+                },
+                {
+                    "date": 1637746646162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,9 +59,9 @@\n       \"areaid\": \"\",\r\n       \"pickupLocation\": \"\",\r\n       \"timeLocal\": \"\",\r\n       \"operName\": \"\",\r\n-      \"operID\": \"\",\r\n+      \"operID\": 1,\r\n     }\r\n \r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637746734338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,24 +44,25 @@\n export function receive() {\r\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n-    data: {\r\n-      \"companyID\": 1,\r\n-      \"companyName\": \"\",\r\n-      \"courierCode\": \"\",\r\n-      \"details\": \"\",\r\n-      \"cardholderid\": \"\",\r\n-      \"email\": \"\",\r\n-      \"countryCode\": \"\",\r\n-      \"phone\": \"\",\r\n-      \"name\": \"\",\r\n-      \"branchID\": \"\",\r\n-      \"areaid\": \"\",\r\n-      \"pickupLocation\": \"\",\r\n-      \"timeLocal\": \"\",\r\n-      \"operName\": \"\",\r\n-      \"operID\": 1,\r\n-    }\r\n+    data\r\n+    // data: {\r\n+    //   \"companyID\": 1,\r\n+    //   \"companyName\": \"\",\r\n+    //   \"courierCode\": \"\",\r\n+    //   \"details\": \"\",\r\n+    //   \"cardholderid\": \"\",\r\n+    //   \"email\": \"\",\r\n+    //   \"countryCode\": \"\",\r\n+    //   \"phone\": \"\",\r\n+    //   \"name\": \"\",\r\n+    //   \"branchID\": \"\",\r\n+    //   \"areaid\": \"\",\r\n+    //   \"pickupLocation\": \"\",\r\n+    //   \"timeLocal\": \"\",\r\n+    //   \"operName\": \"\",\r\n+    //   \"operID\": 1,\r\n+    // }\r\n \r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637746755770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,8 @@\n export function receive() {\r\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n-    data\r\n     // data: {\r\n     //   \"companyID\": 1,\r\n     //   \"companyName\": \"\",\r\n     //   \"courierCode\": \"\",\r\n"
+                },
+                {
+                    "date": 1637747028066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,24 +44,24 @@\n export function receive() {\r\n   return request({\r\n     url: '/2049/',\r\n     method: 'post',\r\n-    // data: {\r\n-    //   \"companyID\": 1,\r\n-    //   \"companyName\": \"\",\r\n-    //   \"courierCode\": \"\",\r\n-    //   \"details\": \"\",\r\n-    //   \"cardholderid\": \"\",\r\n-    //   \"email\": \"\",\r\n-    //   \"countryCode\": \"\",\r\n-    //   \"phone\": \"\",\r\n-    //   \"name\": \"\",\r\n-    //   \"branchID\": \"\",\r\n-    //   \"areaid\": \"\",\r\n-    //   \"pickupLocation\": \"\",\r\n-    //   \"timeLocal\": \"\",\r\n-    //   \"operName\": \"\",\r\n-    //   \"operID\": 1,\r\n-    // }\r\n+    data: {\r\n+      \"companyID\": 1,\r\n+      \"companyName\": \"\",\r\n+      \"courierCode\": \"\",\r\n+      \"details\": \"\",\r\n+      \"cardholderid\": \"\",\r\n+      \"email\": \"\",\r\n+      \"countryCode\": \"\",\r\n+      \"phone\": \"\",\r\n+      \"name\": \"\",\r\n+      \"branchID\": \"\",\r\n+      \"areaid\": \"\",\r\n+      \"pickupLocation\": \"\",\r\n+      \"timeLocal\": \"\",\r\n+      \"operName\": \"\",\r\n+      \"operID\": 1,\r\n+    }\r\n \r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637747258001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n }\r\n //收件\r\n export function receive() {\r\n   return request({\r\n-    url: '/2049/',\r\n+    url: '/2085/',\r\n     method: 'post',\r\n     data: {\r\n       \"companyID\": 1,\r\n       \"companyName\": \"\",\r\n"
+                },
+                {
+                    "date": 1637748183641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,24 +44,7 @@\n export function receive() {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n-    data: {\r\n-      \"companyID\": 1,\r\n-      \"companyName\": \"\",\r\n-      \"courierCode\": \"\",\r\n-      \"details\": \"\",\r\n-      \"cardholderid\": \"\",\r\n-      \"email\": \"\",\r\n-      \"countryCode\": \"\",\r\n-      \"phone\": \"\",\r\n-      \"name\": \"\",\r\n-      \"branchID\": \"\",\r\n-      \"areaid\": \"\",\r\n-      \"pickupLocation\": \"\",\r\n-      \"timeLocal\": \"\",\r\n-      \"operName\": \"\",\r\n-      \"operID\": 1,\r\n-    }\r\n-\r\n+    data,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637748251210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,14 +7,22 @@\n  * @LastEditTime: 2020-11-20 11:08:07\r\n  */\r\n import request from '@/utils/request'\r\n \r\n+// export function login(data) {\r\n+//   return request({\r\n+//     url: '/1065/',\r\n+//     method: 'post',\r\n+//     data\r\n+//   })\r\n+// }\r\n export function login(data) {\r\n-  return request({\r\n+  const test = {\r\n     url: '/1065/',\r\n     method: 'post',\r\n     data\r\n-  })\r\n+  }\r\n+  return request(test)\r\n }\r\n \r\n // export function getInfo(token) {\r\n //   return request({\r\n"
+                },
+                {
+                    "date": 1637748633467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,24 +7,15 @@\n  * @LastEditTime: 2020-11-20 11:08:07\r\n  */\r\n import request from '@/utils/request'\r\n \r\n-// export function login(data) {\r\n-//   return request({\r\n-//     url: '/1065/',\r\n-//     method: 'post',\r\n-//     data\r\n-//   })\r\n-// }\r\n export function login(data) {\r\n-  const test = {\r\n+  return request({\r\n     url: '/1065/',\r\n     method: 'post',\r\n     data\r\n-  }\r\n-  return request(test)\r\n+  })\r\n }\r\n-\r\n // export function getInfo(token) {\r\n //   return request({\r\n //     url: '/s_get_user/',\r\n //     method: 'post',\r\n@@ -48,8 +39,34 @@\n     method: 'post'\r\n   })\r\n }\r\n //收件\r\n+\r\n+// export function login(data) {\r\n+//   const test = {\r\n+//     url: '/1065/',\r\n+//     method: 'post',\r\n+//     data\r\n+//   }\r\n+//   return request(test)\r\n+// }\r\n+let receivetable = {\r\n+  id = \"\",\r\n+  companyID = \"\",\r\n+  courierCode = \"\",\r\n+  cardholderid = \"\",\r\n+  email = \"\",\r\n+  phone = \"\",\r\n+  name = \"\",\r\n+  pickupType = \"\",\r\n+  branchID = \"\",\r\n+  starttime = \"\",\r\n+  endtime = \"\",\r\n+  onlywaitforpickup = \"\",\r\n+  pageindex = \"\",\r\n+  pagesize = \"\",\r\n+\r\n+}\r\n export function receive() {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n"
+                },
+                {
+                    "date": 1637748643870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -63,9 +63,8 @@\n   endtime = \"\",\r\n   onlywaitforpickup = \"\",\r\n   pageindex = \"\",\r\n   pagesize = \"\",\r\n-\r\n }\r\n export function receive() {\r\n   return request({\r\n     url: '/2085/',\r\n"
+                },
+                {
+                    "date": 1637748680064,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -64,11 +64,11 @@\n   onlywaitforpickup = \"\",\r\n   pageindex = \"\",\r\n   pagesize = \"\",\r\n }\r\n-export function receive() {\r\n+export function receive(receivetable) {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n-    data,\r\n+    receivetable,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637748733527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,46 +1,25 @@\n-/*\r\n- * @Descripttion: \r\n- * @version: \r\n- * @Author: Bing\r\n- * @Date: 2020-10-21 09:13:29\r\n- * @LastEditors: sueRimn\r\n- * @LastEditTime: 2020-11-20 11:08:07\r\n- */\r\n import request from '@/utils/request'\r\n-\r\n export function login(data) {\r\n   return request({\r\n     url: '/1065/',\r\n     method: 'post',\r\n     data\r\n   })\r\n }\r\n-// export function getInfo(token) {\r\n-//   return request({\r\n-//     url: '/s_get_user/',\r\n-//     method: 'post',\r\n-//     params: {\r\n-//       token\r\n-//     }\r\n-//   })\r\n-// }\r\n-\r\n export function getInfo(data) {\r\n   return request({\r\n     url: '/1065/',\r\n     method: 'post',\r\n     data\r\n   })\r\n }\r\n-\r\n export function logout() {\r\n   return request({\r\n     url: '/vue-admin-template/user/ ',\r\n     method: 'post'\r\n   })\r\n }\r\n-//收件\r\n \r\n // export function login(data) {\r\n //   const test = {\r\n //     url: '/1065/',\r\n@@ -48,27 +27,29 @@\n //     data\r\n //   }\r\n //   return request(test)\r\n // }\r\n-let receivetable = {\r\n-  id = \"\",\r\n-  companyID = \"\",\r\n-  courierCode = \"\",\r\n-  cardholderid = \"\",\r\n-  email = \"\",\r\n-  phone = \"\",\r\n-  name = \"\",\r\n-  pickupType = \"\",\r\n-  branchID = \"\",\r\n-  starttime = \"\",\r\n-  endtime = \"\",\r\n-  onlywaitforpickup = \"\",\r\n-  pageindex = \"\",\r\n-  pagesize = \"\",\r\n-}\r\n-export function receive(receivetable) {\r\n-  return request({\r\n-    url: '/2085/',\r\n-    method: 'post',\r\n-    receivetable,\r\n-  })\r\n-}\r\n+\r\n+//收件\r\n+// let receivetable = {\r\n+//   id = \"\",\r\n+//   companyID = \"\",\r\n+//   courierCode = \"\",\r\n+//   cardholderid = \"\",\r\n+//   email = \"\",\r\n+//   phone = \"\",\r\n+//   name = \"\",\r\n+//   pickupType = \"\",\r\n+//   branchID = \"\",\r\n+//   starttime = \"\",\r\n+//   endtime = \"\",\r\n+//   onlywaitforpickup = \"\",\r\n+//   pageindex = \"\",\r\n+//   pagesize = \"\",\r\n+// }\r\n+// export function receive(receivetable) {\r\n+//   return request({\r\n+//     url: '/2085/',\r\n+//     method: 'post',\r\n+//     receivetable,\r\n+//   })\r\n+// }\r\n"
+                },
+                {
+                    "date": 1637748745066,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,27 +29,27 @@\n //   return request(test)\r\n // }\r\n \r\n //收件\r\n-// let receivetable = {\r\n-//   id = \"\",\r\n-//   companyID = \"\",\r\n-//   courierCode = \"\",\r\n-//   cardholderid = \"\",\r\n-//   email = \"\",\r\n-//   phone = \"\",\r\n-//   name = \"\",\r\n-//   pickupType = \"\",\r\n-//   branchID = \"\",\r\n-//   starttime = \"\",\r\n-//   endtime = \"\",\r\n-//   onlywaitforpickup = \"\",\r\n-//   pageindex = \"\",\r\n-//   pagesize = \"\",\r\n-// }\r\n-// export function receive(receivetable) {\r\n-//   return request({\r\n-//     url: '/2085/',\r\n-//     method: 'post',\r\n-//     receivetable,\r\n-//   })\r\n-// }\r\n+let receivetable = {\r\n+  id = \"\",\r\n+  companyID = \"\",\r\n+  courierCode = \"\",\r\n+  cardholderid = \"\",\r\n+  email = \"\",\r\n+  phone = \"\",\r\n+  name = \"\",\r\n+  pickupType = \"\",\r\n+  branchID = \"\",\r\n+  starttime = \"\",\r\n+  endtime = \"\",\r\n+  onlywaitforpickup = \"\",\r\n+  pageindex = \"\",\r\n+  pagesize = \"\",\r\n+}\r\n+export function receive(receivetable) {\r\n+  return request({\r\n+    url: '/2085/',\r\n+    method: 'post',\r\n+    receivetable,\r\n+  })\r\n+}\r\n"
+                },
+                {
+                    "date": 1637748833755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,23 +30,23 @@\n // }\r\n \r\n //收件\r\n let receivetable = {\r\n-  id = \"\",\r\n-  companyID = \"\",\r\n-  courierCode = \"\",\r\n-  cardholderid = \"\",\r\n-  email = \"\",\r\n-  phone = \"\",\r\n-  name = \"\",\r\n-  pickupType = \"\",\r\n-  branchID = \"\",\r\n-  starttime = \"\",\r\n-  endtime = \"\",\r\n-  onlywaitforpickup = \"\",\r\n-  pageindex = \"\",\r\n-  pagesize = \"\",\r\n-}\r\n+  id: \"\",\r\n+  companyID: \"\",\r\n+  courierCode: \"\",\r\n+  cardholderid: \"\",\r\n+  email: \"\",\r\n+  phone: \"\",\r\n+  name: \"\",\r\n+  pickupType: \"\",\r\n+  branchID: \"\",\r\n+  starttime: \"\",\r\n+  endtime: \"\",\r\n+  onlywaitforpickup: \"\",\r\n+  pageindex: \"\",\r\n+  pagesize: \"\",\r\n+};\r\n export function receive(receivetable) {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n"
+                },
+                {
+                    "date": 1637748849902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n   onlywaitforpickup: \"\",\r\n   pageindex: \"\",\r\n   pagesize: \"\",\r\n };\r\n-export function receive(receivetable) {\r\n+export function receivetable(receivetable) {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n     receivetable,\r\n"
+                },
+                {
+                    "date": 1637748908046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n //   return request(test)\r\n // }\r\n \r\n //收件\r\n-let receivetable = {\r\n+let newredata = {\r\n   id: \"\",\r\n   companyID: \"\",\r\n   courierCode: \"\",\r\n   cardholderid: \"\",\r\n@@ -45,11 +45,11 @@\n   onlywaitforpickup: \"\",\r\n   pageindex: \"\",\r\n   pagesize: \"\",\r\n };\r\n-export function receivetable(receivetable) {\r\n+export function receive(newredata) {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n-    receivetable,\r\n+    newredata,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637805595209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,8 @@\n };\r\n export function receive(newredata) {\r\n   return request({\r\n     url: '/2085/',\r\n-    method: 'post',\r\n+    method: 'get',\r\n     newredata,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637805913970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,8 @@\n };\r\n export function receive(newredata) {\r\n   return request({\r\n     url: '/2085/',\r\n-    method: 'get',\r\n+    method: 'post',\r\n     newredata,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637805980349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,8 @@\n };\r\n export function receive(newredata) {\r\n   return request({\r\n     url: '/2085/',\r\n-    method: 'post',\r\n+    method: 'get',\r\n     newredata,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637806363751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,24 +29,24 @@\n //   return request(test)\r\n // }\r\n \r\n //收件\r\n-let newredata = {\r\n-  id: \"\",\r\n-  companyID: \"\",\r\n-  courierCode: \"\",\r\n-  cardholderid: \"\",\r\n-  email: \"\",\r\n-  phone: \"\",\r\n-  name: \"\",\r\n-  pickupType: \"\",\r\n-  branchID: \"\",\r\n-  starttime: \"\",\r\n-  endtime: \"\",\r\n-  onlywaitforpickup: \"\",\r\n-  pageindex: \"\",\r\n-  pagesize: \"\",\r\n-};\r\n+// let newredata = {\r\n+//   id: \"\",\r\n+//   companyID: \"\",\r\n+//   courierCode: \"\",\r\n+//   cardholderid: \"\",\r\n+//   email: \"\",\r\n+//   phone: \"\",\r\n+//   name: \"\",\r\n+//   pickupType: \"\",\r\n+//   branchID: \"\",\r\n+//   starttime: \"\",\r\n+//   endtime: \"\",\r\n+//   onlywaitforpickup: \"\",\r\n+//   pageindex: \"\",\r\n+//   pagesize: \"\",\r\n+// };\r\n export function receive(newredata) {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'get',\r\n"
+                },
+                {
+                    "date": 1637806388030,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,8 @@\n // };\r\n export function receive(newredata) {\r\n   return request({\r\n     url: '/2085/',\r\n-    method: 'get',\r\n+    method: 'post',\r\n     newredata,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637806703875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,11 +45,20 @@\n //   onlywaitforpickup: \"\",\r\n //   pageindex: \"\",\r\n //   pagesize: \"\",\r\n // };\r\n+\r\n+//post 请求\r\n export function receive(newredata) {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n     newredata,\r\n   })\r\n }\r\n+//get 请求\r\n+export function receive() {\r\n+  return request({\r\n+    url: '/2085/',\r\n+    method: 'post',\r\n+  })\r\n+}\r\n"
+                },
+                {
+                    "date": 1637806712953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,7 +58,7 @@\n //get 请求\r\n export function receive() {\r\n   return request({\r\n     url: '/2085/',\r\n-    method: 'post',\r\n+    method: 'get',\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637806719040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,10 +55,10 @@\n     newredata,\r\n   })\r\n }\r\n //get 请求\r\n-export function receive() {\r\n-  return request({\r\n-    url: '/2085/',\r\n-    method: 'get',\r\n-  })\r\n-}\r\n+// export function receive() {\r\n+//   return request({\r\n+//     url: '/2085/',\r\n+//     method: 'get',\r\n+//   })\r\n+// }\r\n"
+                },
+                {
+                    "date": 1637806738133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,18 +47,18 @@\n //   pagesize: \"\",\r\n // };\r\n \r\n //post 请求\r\n-export function receive(newredata) {\r\n+// export function receive(newredata) {\r\n+//   return request({\r\n+//     url: '/2085/',\r\n+//     method: 'post',\r\n+//     newredata,\r\n+//   })\r\n+// }\r\n+//get 请求\r\n+export function receive() {\r\n   return request({\r\n     url: '/2085/',\r\n-    method: 'post',\r\n-    newredata,\r\n+    method: 'get',\r\n   })\r\n }\r\n-//get 请求\r\n-// export function receive() {\r\n-//   return request({\r\n-//     url: '/2085/',\r\n-//     method: 'get',\r\n-//   })\r\n-// }\r\n"
+                },
+                {
+                    "date": 1637807321130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,18 +47,11 @@\n //   pagesize: \"\",\r\n // };\r\n \r\n //post 请求\r\n-// export function receive(newredata) {\r\n-//   return request({\r\n-//     url: '/2085/',\r\n-//     method: 'post',\r\n-//     newredata,\r\n-//   })\r\n-// }\r\n-//get 请求\r\n-export function receive() {\r\n+export function receive(newredata) {\r\n   return request({\r\n     url: '/2085/',\r\n-    method: 'get',\r\n+    method: 'post',\r\n+    newredata,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637808655672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,25 +29,25 @@\n //   return request(test)\r\n // }\r\n \r\n //收件\r\n-// let newredata = {\r\n-//   id: \"\",\r\n-//   companyID: \"\",\r\n-//   courierCode: \"\",\r\n-//   cardholderid: \"\",\r\n-//   email: \"\",\r\n-//   phone: \"\",\r\n-//   name: \"\",\r\n-//   pickupType: \"\",\r\n-//   branchID: \"\",\r\n-//   starttime: \"\",\r\n-//   endtime: \"\",\r\n-//   onlywaitforpickup: \"\",\r\n-//   pageindex: \"\",\r\n-//   pagesize: \"\",\r\n-// };\r\n \r\n+let newredata = {\r\n+  id: \"\",\r\n+  companyID: \"\",\r\n+  courierCode: \"\",\r\n+  cardholderid: \"\",\r\n+  email: \"\",\r\n+  phone: \"\",\r\n+  name: \"\",\r\n+  pickupType: \"\",\r\n+  branchID: \"\",\r\n+  starttime: \"\",\r\n+  endtime: \"\",\r\n+  onlywaitforpickup: \"\",\r\n+  pageindex: \"\",\r\n+  pagesize: \"\",\r\n+};\r\n //post 请求\r\n export function receive(newredata) {\r\n   return request({\r\n     url: '/2085/',\r\n"
+                },
+                {
+                    "date": 1637809703168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,24 +30,9 @@\n // }\r\n \r\n //收件\r\n \r\n-let newredata = {\r\n-  id: \"\",\r\n-  companyID: \"\",\r\n-  courierCode: \"\",\r\n-  cardholderid: \"\",\r\n-  email: \"\",\r\n-  phone: \"\",\r\n-  name: \"\",\r\n-  pickupType: \"\",\r\n-  branchID: \"\",\r\n-  starttime: \"\",\r\n-  endtime: \"\",\r\n-  onlywaitforpickup: \"\",\r\n-  pageindex: \"\",\r\n-  pagesize: \"\",\r\n-};\r\n+\r\n //post 请求\r\n export function receive(newredata) {\r\n   return request({\r\n     url: '/2085/',\r\n"
+                },
+                {
+                    "date": 1637813025498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,12 +29,11 @@\n //   return request(test)\r\n // }\r\n \r\n //收件\r\n-\r\n-\r\n //post 请求\r\n export function receive(newredata) {\r\n+  console.log(newredata, 11)\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n     newredata,\r\n"
+                },
+                {
+                    "date": 1637813366886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n \r\n //收件\r\n //post 请求\r\n export function receive(newredata) {\r\n-  console.log(newredata, 11)\r\n+  console.log(\"111\", newredata)\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n     newredata,\r\n"
+                },
+                {
+                    "date": 1637813667517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,11 +31,10 @@\n \r\n //收件\r\n //post 请求\r\n export function receive(newredata) {\r\n-  console.log(\"111\", newredata)\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n-    newredata,\r\n+    data,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637813682182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n // }\r\n \r\n //收件\r\n //post 请求\r\n-export function receive(newredata) {\r\n+export function receive(data) {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n     data,\r\n"
+                },
+                {
+                    "date": 1637819076199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,12 +29,19 @@\n //   return request(test)\r\n // }\r\n \r\n //收件\r\n-//post 请求\r\n export function receive(data) {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n+//确认收件\r\n+export function confirmRece(data) {\r\n+  return request({\r\n+    url: '/2085/',\r\n+    method: 'post',\r\n+    data,\r\n+  })\r\n+}\r\n"
+                },
+                {
+                    "date": 1637819413038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,11 +37,10 @@\n     data,\r\n   })\r\n }\r\n //确认收件\r\n-export function confirmRece(data) {\r\n+export function confirmRece() {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n-    data,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637819519202,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,10 +37,11 @@\n     data,\r\n   })\r\n }\r\n //确认收件\r\n-export function confirmRece() {\r\n+export function confirmRece(data) {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n+    data,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637821998580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n }\r\n //确认收件\r\n export function confirmRece(data) {\r\n   return request({\r\n-    url: '/2085/',\r\n+    url: '/2049/',\r\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637822154074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n //   }\r\n //   return request(test)\r\n // }\r\n \r\n-//收件\r\n+//收件记录表\r\n export function receive(data) {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n"
+                },
+                {
+                    "date": 1637822161185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n //   }\r\n //   return request(test)\r\n // }\r\n \r\n-//收件记录表\r\n+//记录表\r\n export function receive(data) {\r\n   return request({\r\n     url: '/2085/',\r\n     method: 'post',\r\n"
+                },
+                {
+                    "date": 1637827338503,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,4 +44,13 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n+//模糊搜素\r\n+export function querySearchAsync(data) {\r\n+  return request({\r\n+    url: '/1059/',\r\n+    method: 'post',\r\n+    data,\r\n+  })\r\n+}\r\n+// fyzzyQuery().then(function(response){console.log(response)}).catch(function(error){console.log(error)})\r\n"
+                },
+                {
+                    "date": 1637828026745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     data,\r\n   })\r\n }\r\n //模糊搜素\r\n-export function querySearchAsync(data) {\r\n+export function fuzzyQuery(data) {\r\n   return request({\r\n     url: '/1059/',\r\n     method: 'post',\r\n     data,\r\n"
+                },
+                {
+                    "date": 1637828054777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,5 +52,5 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n-// fyzzyQuery().then(function(response){console.log(response)}).catch(function(error){console.log(error)})\r\n+// fuzzyQuery().then(function(response){console.log(response)}).catch(function(error){console.log(error)})\r\n"
+                },
+                {
+                    "date": 1637832263424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,11 +45,11 @@\n     data,\r\n   })\r\n }\r\n //模糊搜素\r\n-export function fuzzyQuery(data) {\r\n+export function getAllEmployees(data) {\r\n   return request({\r\n-    url: '/1059/',\r\n+    url: '/1035/',\r\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1637832312688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,12 +45,11 @@\n     data,\r\n   })\r\n }\r\n //模糊搜素\r\n-export function getAllEmployees(data) {\r\n+export function getAllEmployees() {\r\n   return request({\r\n     url: '/1035/',\r\n     method: 'post',\r\n-    data,\r\n   })\r\n }\r\n // fuzzyQuery().then(function(response){console.log(response)}).catch(function(error){console.log(error)})\r\n"
+                },
+                {
+                    "date": 1637833028741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n     data,\r\n   })\r\n }\r\n //模糊搜素\r\n-export function getAllEmployees() {\r\n+export function fuzzyQuery() {\r\n   return request({\r\n     url: '/1035/',\r\n     method: 'post',\r\n   })\r\n"
+                },
+                {
+                    "date": 1637833037444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n }\r\n //模糊搜素\r\n export function fuzzyQuery() {\r\n   return request({\r\n-    url: '/1035/',\r\n+    url: '/1059/',\r\n     method: 'post',\r\n   })\r\n }\r\n // fuzzyQuery().then(function(response){console.log(response)}).catch(function(error){console.log(error)})\r\n"
+                },
+                {
+                    "date": 1637833250434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,11 +45,12 @@\n     data,\r\n   })\r\n }\r\n //模糊搜素\r\n-export function fuzzyQuery() {\r\n+export function fuzzyQuery(data) {\r\n   return request({\r\n     url: '/1059/',\r\n     method: 'post',\r\n+    data,\r\n   })\r\n }\r\n // fuzzyQuery().then(function(response){console.log(response)}).catch(function(error){console.log(error)})\r\n"
+                },
+                {
+                    "date": 1637898900513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,21 +36,20 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n-//确认收件\r\n-export function confirmRece(data) {\r\n+//模糊搜素\r\n+export function fuzzyQuery(data) {\r\n   return request({\r\n-    url: '/2049/',\r\n+    url: '/1059/',\r\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n-//模糊搜素\r\n-export function fuzzyQuery(data) {\r\n+//确认收件\r\n+export function confirmRece(data) {\r\n   return request({\r\n-    url: '/1059/',\r\n+    url: '/2049/',\r\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n-// fuzzyQuery().then(function(response){console.log(response)}).catch(function(error){console.log(error)})\r\n"
+                },
+                {
+                    "date": 1637910858273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,16 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n+//快递公司名字\r\n+export function getCName(data) {\r\n+  return request({\r\n+    url: '/1085/',\r\n+    method: 'post',\r\n+    data,\r\n+  })\r\n+}\r\n //模糊搜素\r\n export function fuzzyQuery(data) {\r\n   return request({\r\n     url: '/1059/',\r\n"
+                },
+                {
+                    "date": 1637910963234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n-//快递公司名字\r\n+//获取快递公司\r\n export function getCName(data) {\r\n   return request({\r\n     url: '/1085/',\r\n     method: 'post',\r\n"
+                },
+                {
+                    "date": 1638151005728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,16 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n+//操作员或用户信息\r\n+export function fuzzyQuery(data) {\r\n+  return request({\r\n+    url: '/1059/',\r\n+    method: 'post',\r\n+    data,\r\n+  })\r\n+}\r\n //确认收件\r\n export function confirmRece(data) {\r\n   return request({\r\n     url: '/2049/',\r\n"
+                },
+                {
+                    "date": 1638151032196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n }\r\n //操作员或用户信息\r\n export function fuzzyQuery(data) {\r\n   return request({\r\n-    url: '/1059/',\r\n+    url: '/1071/',\r\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1638151070614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,20 +52,20 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n-//操作员或用户信息\r\n-export function fuzzyQuery(data) {\r\n+//确认收件\r\n+export function confirmRece(data) {\r\n   return request({\r\n-    url: '/1071/',\r\n+    url: '/2049/',\r\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n-//确认收件\r\n-export function confirmRece(data) {\r\n+//操作员或用户信息\r\n+export function getUsers(data) {\r\n   return request({\r\n-    url: '/2049/',\r\n+    url: '/1071/',\r\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n"
+                },
+                {
+                    "date": 1638154039023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,4 +68,12 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n+//得到快件位置\r\n+export function getBranches(data) {\r\n+  return request({\r\n+    url: '/1047/',\r\n+    method: 'post',\r\n+    data,\r\n+  })\r\n+}\r\n"
+                },
+                {
+                    "date": 1638157330595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,16 +52,8 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n-//确认收件\r\n-export function confirmRece(data) {\r\n-  return request({\r\n-    url: '/2049/',\r\n-    method: 'post',\r\n-    data,\r\n-  })\r\n-}\r\n //操作员或用户信息\r\n export function getUsers(data) {\r\n   return request({\r\n     url: '/1071/',\r\n@@ -76,4 +68,12 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n+//确认收件\r\n+export function confirmRece(data) {\r\n+  return request({\r\n+    url: '/2049/',\r\n+    method: 'post',\r\n+    data,\r\n+  })\r\n+}\r\n"
+                },
+                {
+                    "date": 1638174987093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,4 +76,12 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n+//分页信息\r\n+export function getPageData(data) {\r\n+  return request({\r\n+    url: '/2085/',\r\n+    method: 'post',\r\n+    data,\r\n+  })\r\n+}\r\n"
+                },
+                {
+                    "date": 1638340400927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,12 +76,4 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n-//分页信息\r\n-export function getPageData(data) {\r\n-  return request({\r\n-    url: '/2085/',\r\n-    method: 'post',\r\n-    data,\r\n-  })\r\n-}\r\n"
+                },
+                {
+                    "date": 1638353351829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,4 +76,12 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n+//确认寄件\r\n+export function confirmRece(data) {\r\n+  return request({\r\n+    url: '/2051/',\r\n+    method: 'post',\r\n+    data,\r\n+  })\r\n+}\r\n"
+                },
+                {
+                    "date": 1638353855511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,9 +77,9 @@\n     data,\r\n   })\r\n }\r\n //确认寄件\r\n-export function confirmRece(data) {\r\n+export function confirmMail(data) {\r\n   return request({\r\n     url: '/2051/',\r\n     method: 'post',\r\n     data,\r\n"
+                },
+                {
+                    "date": 1638354462226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,8 +60,15 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n+export function getUsersM(data) {\r\n+  return request({\r\n+    url: '/1071/',\r\n+    method: 'post',\r\n+    data,\r\n+  })\r\n+}\r\n //得到快件位置\r\n export function getBranches(data) {\r\n   return request({\r\n     url: '/1047/',\r\n"
+                },
+                {
+                    "date": 1638516874935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,4 +91,12 @@\n     method: 'post',\r\n     data,\r\n   })\r\n }\r\n+//确认取件\r\n+export function confirmTake(data) {\r\n+  return request({\r\n+    url: '/2050/',\r\n+    method: 'post',\r\n+    data,\r\n+  })\r\n+}\r\n"
+                }
+            ],
+            "date": 1637577361657,
+            "name": "Commit-0",
+            "content": "/*\r\n * @Descripttion: \r\n * @version: \r\n * @Author: Bing\r\n * @Date: 2020-10-21 09:13:29\r\n * @LastEditors: sueRimn\r\n * @LastEditTime: 2020-11-20 11:08:07\r\n */\r\nimport request from '@/utils/request'\r\n\r\nexport function login(data) {\r\n  return request({\r\n    url: '/1065',\r\n    method: 'post',\r\n    data\r\n  })\r\n}\r\n\r\nexport function getInfo(token) {\r\n  return request({\r\n    url: '/s_get_user/',\r\n    method: 'post',\r\n    params: {\r\n      token\r\n    }\r\n  })\r\n}\r\n\r\nexport function logout() {\r\n  return request({\r\n    url: '/vue-admin-template/user/ ',\r\n    method: 'post'\r\n  })\r\n}\r\n"
+        }
+    ]
+}

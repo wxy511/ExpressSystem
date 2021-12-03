@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   t="1612151226680"
+   class="icon"
+   viewBox="0 0 1024 1024"
+   version="1.1"
+   p-id="47822"
+   width="128"
+   height="128"
+   id="svg214"
+   sodipodi:docname="employees-list.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)">
+  <metadata
+     id="metadata218">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1152"
+     inkscape:window-height="1985"
+     id="namedview216"
+     showgrid="false"
+     inkscape:zoom="7.875"
+     inkscape:cx="64"
+     inkscape:cy="64"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg214" />
+  <defs
+     id="defs204">
+    <style
+       type="text/css"
+       id="style202" />
+  </defs>
+  <path
+     d="M1024 947.2c-51.2-166.4-179.2-300.8-339.2-358.4-12.8-6.4-25.6 0-32 12.8-6.4 12.8 0 25.6 12.8 32 147.2 51.2 268.8 172.8 307.2 320 0 12.8 12.8 19.2 25.6 19.2 0 0 6.4 0 6.4 0C1017.6 972.8 1024 960 1024 947.2z"
+     p-id="47823"
+     id="path206" />
+  <path
+     d="M339.2 595.2c-166.4 57.6-294.4 185.6-339.2 358.4C0 960 6.4 972.8 19.2 979.2c0 0 6.4 0 6.4 0 12.8 0 19.2-6.4 25.6-19.2 44.8-153.6 160-275.2 307.2-320 12.8-6.4 19.2-19.2 12.8-32C371.2 595.2 352 588.8 339.2 595.2z"
+     p-id="47824"
+     id="path208" />
+  <path
+     d="m 504.38095,266.86984 m -237.20635,0 a 237.20635,230.09524 0 1 0 474.4127,0 237.20635,230.09524 0 1 0 -474.4127,0 z"
+     p-id="47825"
+     id="path210"
+     style="stroke-width:0.912593" />
+  <path
+     d="m 515.26705,570.92075 -123.8681,32.79846 95.19774,59.3585 -85.99779,263.30146 114.22931,79.13183 114.38888,-78.90097 -85.46585,-263.47461 95.31742,-59.16612 z"
+     p-id="47826"
+     id="path212"
+     style="stroke-width:1.23748" />
+</svg>

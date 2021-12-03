@@ -1,0 +1,142 @@
+{
+    "sourceFile": "src/views/locationConf/index.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 31,
+            "patches": [
+                {
+                    "date": 1637734098544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1637734130132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,6 +3,6 @@\n export default {\r\n   name: \"locationConf\",\r\n };\r\n </script>\r\n-<style scoped>\r\n+<style lang=\"scss\" scoped>\r\n </style>\r\n"
+                },
+                {
+                    "date": 1637734158169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n-<template></template>\r\n+<template>\r\n+  <div class=\"locationConf\"></div>\r\n+</template>\r\n <script>\r\n export default {\r\n   name: \"locationConf\",\r\n };\r\n"
+                },
+                {
+                    "date": 1637734218213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+<template>\r\n+  <div class=\"locationConf-container light-gray-background\">\r\n+    <div\r\n+      class=\"expressType\"\r\n+      style=\"background: #fff; padding: 16px 16px 0; margin-bottom: 32px\"\r\n+    ></div>\r\n+  </div>\r\n+</template>\r\n+<script>\r\n+export default {\r\n+  name: \"locationConf\",\r\n+};\r\n+</script>\r\n+<style lang=\"scss\" scoped>\r\n+</style>\r\n"
+                },
+                {
+                    "date": 1637734234339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,17 @@\n+<template>\r\n+  <div class=\"locationConf-container light-gray-background\">\r\n+    <div\r\n+      class=\"expressType\"\r\n+      style=\"background: #fff; padding: 16px 16px 0; margin-bottom: 32px\"\r\n+    >\r\n+      我是公司位置配置页面\r\n+    </div>\r\n+  </div>\r\n+</template>\r\n+<script>\r\n+export default {\r\n+  name: \"locationConf\",\r\n+};\r\n+</script>\r\n+<style lang=\"scss\" scoped>\r\n+</style>\r\n"
+                },
+                {
+                    "date": 1637737048060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,31 @@\n <template>\r\n   <div class=\"locationConf-container light-gray-background\">\r\n     <div\r\n-      class=\"expressType\"\r\n+      class=\"locationConf\"\r\n       style=\"background: #fff; padding: 16px 16px 0; margin-bottom: 32px\"\r\n     >\r\n-      我是公司位置配置页面\r\n+      <div class=\"left\">\r\n+        <span style=\"font-size: 20px\">快递名称:</span>\r\n+        <ul>\r\n+          <li>圆通快递</li>\r\n+          <li>圆通快递</li>\r\n+          <li>圆通快递</li>\r\n+          <li>圆通快递</li>\r\n+          <li>圆通快递</li>\r\n+          <li>圆通快递</li>\r\n+          <li>圆通快递</li>\r\n+          <li>圆通快递</li>\r\n+          <li>圆通快递</li>\r\n+        </ul>\r\n+      </div>\r\n+      <div class=\"right\">\r\n+        <span style=\"font-size: 20px\">快递公司名称:</span>\r\n+        <el-input></el-input>\r\n+        <el-button type=\"primary\">添加</el-button>\r\n+        <el-button type=\"primary\">修改</el-button>\r\n+        <el-button type=\"primary\">删除</el-button>\r\n+      </div>\r\n     </div>\r\n   </div>\r\n </template>\r\n <script>\r\n@@ -13,30 +33,20 @@\n   name: \"locationConf\",\r\n };\r\n </script>\r\n <style lang=\"scss\" scoped>\r\n+.locationConf-container {\r\n+  padding: 10px 5px 0px 5px;\r\n+  min-height: calc(100vh - 50px);\r\n+  .locationConf {\r\n+    display: flex;\r\n+    .left {\r\n+      margin-right: 20px;\r\n+      ul li {\r\n+        list-style: none;\r\n+        font-size: 20px;\r\n+        line-height: 30px;\r\n+      }\r\n+    }\r\n+  }\r\n+}\r\n </style>\r\n-<template>\r\n-  <div class=\"locationConf-container light-gray-background\">\r\n-    <div\r\n-      class=\"expressType\"\r\n-      style=\"background: #fff; padding: 16px 16px 0; margin-bottom: 32px\"\r\n-    ></div>\r\n-  </div>\r\n-</template>\r\n-<script>\r\n-export default {\r\n-  name: \"locationConf\",\r\n-};\r\n-</script>\r\n-<style lang=\"scss\" scoped>\r\n-</style>\r\n-<template>\r\n-  <div class=\"locationConf\"></div>\r\n-</template>\r\n-<script>\r\n-export default {\r\n-  name: \"locationConf\",\r\n-};\r\n-</script>\r\n-<style lang=\"scss\" scoped>\r\n-</style>\r\n"
+                },
+                {
+                    "date": 1637737100100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,19 +4,20 @@\n       class=\"locationConf\"\r\n       style=\"background: #fff; padding: 16px 16px 0; margin-bottom: 32px\"\r\n     >\r\n       <div class=\"left\">\r\n-        <span style=\"font-size: 20px\">快递名称:</span>\r\n+        <span style=\"font-size: 20px\">位置名称:</span>\r\n         <ul>\r\n-          <li>圆通快递</li>\r\n-          <li>圆通快递</li>\r\n-          <li>圆通快递</li>\r\n-          <li>圆通快递</li>\r\n-          <li>圆通快递</li>\r\n-          <li>圆通快递</li>\r\n-          <li>圆通快递</li>\r\n-          <li>圆通快递</li>\r\n-          <li>圆通快递</li>\r\n+          <li>SH</li>\r\n+          <li>SH</li>\r\n+          <li>SH</li>\r\n+          <li>SH</li>\r\n+          <li>SH</li>\r\n+          <li>SH</li>\r\n+          <li>SH</li>\r\n+          <li>SH</li>\r\n+          <li>SH</li>\r\n+          <li>SH</li>\r\n         </ul>\r\n       </div>\r\n       <div class=\"right\">\r\n         <span style=\"font-size: 20px\">快递公司名称:</span>\r\n"
+                },
+                {
+                    "date": 1637737155223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,12 @@\n           <li>SH</li>\r\n         </ul>\r\n       </div>\r\n       <div class=\"right\">\r\n-        <span style=\"font-size: 20px\">快递公司名称:</span>\r\n+        <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input></el-input>\r\n+        <span style=\"font-size: 20px\">位置名称</span>\r\n+        <el-input></el-input>\r\n         <el-button type=\"primary\">添加</el-button>\r\n         <el-button type=\"primary\">修改</el-button>\r\n         <el-button type=\"primary\">删除</el-button>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1637737195662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n         <el-input></el-input>\r\n         <el-button type=\"primary\">添加</el-button>\r\n         <el-button type=\"primary\">修改</el-button>\r\n         <el-button type=\"primary\">删除</el-button>\r\n+        <div><el-button type=\"primary\">设置当前位置</el-button></div>\r\n       </div>\r\n     </div>\r\n   </div>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1637737235052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,11 +23,14 @@\n         <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input></el-input>\r\n         <span style=\"font-size: 20px\">位置名称</span>\r\n         <el-input></el-input>\r\n-        <el-button type=\"primary\">添加</el-button>\r\n-        <el-button type=\"primary\">修改</el-button>\r\n-        <el-button type=\"primary\">删除</el-button>\r\n+        <div>\r\n+          <el-button type=\"primary\">添加</el-button>\r\n+          <el-button type=\"primary\">修改</el-button>\r\n+          <el-button type=\"primary\">删除</el-button>\r\n+        </div>\r\n+\r\n         <div><el-button type=\"primary\">设置当前位置</el-button></div>\r\n       </div>\r\n     </div>\r\n   </div>\r\n"
+                },
+                {
+                    "date": 1637737349084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,11 @@\n           <el-button type=\"primary\">添加</el-button>\r\n           <el-button type=\"primary\">修改</el-button>\r\n           <el-button type=\"primary\">删除</el-button>\r\n         </div>\r\n-\r\n-        <div><el-button type=\"primary\">设置当前位置</el-button></div>\r\n+        <div>\r\n+          <el-button type=\"primary\" style=\"width: 100%\">设置当前位置</el-button>\r\n+        </div>\r\n       </div>\r\n     </div>\r\n   </div>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1637737410102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input></el-input>\r\n         <span style=\"font-size: 20px\">位置名称</span>\r\n         <el-input></el-input>\r\n-        <div>\r\n+        <div class=\"btns\">\r\n           <el-button type=\"primary\">添加</el-button>\r\n           <el-button type=\"primary\">修改</el-button>\r\n           <el-button type=\"primary\">删除</el-button>\r\n         </div>\r\n@@ -54,7 +54,13 @@\n         font-size: 20px;\r\n         line-height: 30px;\r\n       }\r\n     }\r\n+    .right {\r\n+      .btns {\r\n+        display: flex;\r\n+        justify-content: space-between;\r\n+      }\r\n+    }\r\n   }\r\n }\r\n </style>\r\n"
+                },
+                {
+                    "date": 1637737435614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,11 +24,11 @@\n         <el-input></el-input>\r\n         <span style=\"font-size: 20px\">位置名称</span>\r\n         <el-input></el-input>\r\n         <div class=\"btns\">\r\n-          <el-button type=\"primary\">添加</el-button>\r\n-          <el-button type=\"primary\">修改</el-button>\r\n-          <el-button type=\"primary\">删除</el-button>\r\n+          <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n+          <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n+          <el-button type=\"primary\" style=\"width: 100%\">删除</el-button>\r\n         </div>\r\n         <div>\r\n           <el-button type=\"primary\" style=\"width: 100%\">设置当前位置</el-button>\r\n         </div>\r\n"
+                },
+                {
+                    "date": 1637737457609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,8 +58,9 @@\n     .right {\r\n       .btns {\r\n         display: flex;\r\n         justify-content: space-between;\r\n+        margin-bottom: 20px;\r\n       }\r\n     }\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1637737487335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n     .right {\r\n       .btns {\r\n         display: flex;\r\n         justify-content: space-between;\r\n-        margin-bottom: 20px;\r\n+        margin-bottom: 50px;\r\n       }\r\n     }\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1637737494137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n     .right {\r\n       .btns {\r\n         display: flex;\r\n         justify-content: space-between;\r\n-        margin-bottom: 50px;\r\n+        margin-bottom: 1000px;\r\n       }\r\n     }\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1637737516145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,9 @@\n     .right {\r\n       .btns {\r\n         display: flex;\r\n         justify-content: space-between;\r\n-        margin-bottom: 1000px;\r\n+        margin-bottom: 50px;\r\n       }\r\n     }\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1637737546253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n           <li>SH</li>\r\n         </ul>\r\n       </div>\r\n       <div class=\"right\">\r\n-        <span style=\"font-size: 20px\">位置编码</span>\r\n+        <span style=\"font-size: 20px; margin-bottom: 20px\">位置编码</span>\r\n         <el-input></el-input>\r\n         <span style=\"font-size: 20px\">位置名称</span>\r\n         <el-input></el-input>\r\n         <div class=\"btns\">\r\n"
+                },
+                {
+                    "date": 1637737560416,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n       </div>\r\n       <div class=\"right\">\r\n         <span style=\"font-size: 20px; margin-bottom: 20px\">位置编码</span>\r\n         <el-input></el-input>\r\n-        <span style=\"font-size: 20px\">位置名称</span>\r\n+        <span style=\"font-size: 20px; margin-bottom: 20px\">位置名称</span>\r\n         <el-input></el-input>\r\n         <div class=\"btns\">\r\n           <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n"
+                },
+                {
+                    "date": 1637737583104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n         </ul>\r\n       </div>\r\n       <div class=\"right\">\r\n         <span style=\"font-size: 20px; margin-bottom: 20px\">位置编码</span>\r\n-        <el-input></el-input>\r\n+        <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <span style=\"font-size: 20px; margin-bottom: 20px\">位置名称</span>\r\n         <el-input></el-input>\r\n         <div class=\"btns\">\r\n           <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n"
+                },
+                {
+                    "date": 1637737591773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n       <div class=\"right\">\r\n         <span style=\"font-size: 20px; margin-bottom: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <span style=\"font-size: 20px; margin-bottom: 20px\">位置名称</span>\r\n-        <el-input></el-input>\r\n+        <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <div class=\"btns\">\r\n           <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">删除</el-button>\r\n"
+                },
+                {
+                    "date": 1637737646603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,11 +19,11 @@\n           <li>SH</li>\r\n         </ul>\r\n       </div>\r\n       <div class=\"right\">\r\n-        <span style=\"font-size: 20px; margin-bottom: 20px\">位置编码</span>\r\n+        <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n-        <span style=\"font-size: 20px; margin-bottom: 20px\">位置名称</span>\r\n+        <span style=\"font-size: 20px\">位置名称</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <div class=\"btns\">\r\n           <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n"
+                },
+                {
+                    "date": 1637737685757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n           <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">删除</el-button>\r\n         </div>\r\n         <div>\r\n-          <el-button type=\"primary\" style=\"width: 100%\">设置当前位置</el-button>\r\n+          <el-button type=\"primary\" style=\"width: 100%\">设为当前位置</el-button>\r\n         </div>\r\n       </div>\r\n     </div>\r\n   </div>\r\n"
+                },
+                {
+                    "date": 1637738060823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,17 @@\n           <li>SH</li>\r\n         </ul>\r\n       </div>\r\n       <div class=\"right\">\r\n+        <span style=\"font-size: 20px\">快递公司名称</span>\r\n+        <el-input style=\"margin-bottom: 20px\"></el-input>\r\n+        <div class=\"btns\">\r\n+          <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n+          <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n+          <el-button type=\"primary\" style=\"width: 100%\">删除</el-button>\r\n+        </div>\r\n+      </div>\r\n+      <!-- <div class=\"right\">\r\n         <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <span style=\"font-size: 20px\">位置名称</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n@@ -31,9 +40,9 @@\n         </div>\r\n         <div>\r\n           <el-button type=\"primary\" style=\"width: 100%\">设为当前位置</el-button>\r\n         </div>\r\n-      </div>\r\n+      </div> -->\r\n     </div>\r\n   </div>\r\n </template>\r\n <script>\r\n"
+                },
+                {
+                    "date": 1637738109417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n           <li>SH</li>\r\n         </ul>\r\n       </div>\r\n       <div class=\"right\">\r\n-        <span style=\"font-size: 20px\">快递公司名称</span>\r\n+        <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <div class=\"btns\">\r\n           <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n"
+                },
+                {
+                    "date": 1637738177695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,11 @@\n           <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">删除</el-button>\r\n         </div>\r\n+        <div>\r\n+          <el-button type=\"primary\" style=\"width: 100%\">设为当前位置</el-button>\r\n+        </div>\r\n       </div>\r\n       <!-- <div class=\"right\">\r\n         <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n"
+                },
+                {
+                    "date": 1637738208020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n           <li>SH</li>\r\n           <li>SH</li>\r\n         </ul>\r\n       </div>\r\n-      <div class=\"right\">\r\n+      <!-- <div class=\"right\">\r\n         <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <div class=\"btns\">\r\n           <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n@@ -29,10 +29,10 @@\n         </div>\r\n         <div>\r\n           <el-button type=\"primary\" style=\"width: 100%\">设为当前位置</el-button>\r\n         </div>\r\n-      </div>\r\n-      <!-- <div class=\"right\">\r\n+      </div> -->\r\n+      <div class=\"right\">\r\n         <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <span style=\"font-size: 20px\">位置名称</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n@@ -43,9 +43,9 @@\n         </div>\r\n         <div>\r\n           <el-button type=\"primary\" style=\"width: 100%\">设为当前位置</el-button>\r\n         </div>\r\n-      </div> -->\r\n+      </div>\r\n     </div>\r\n   </div>\r\n </template>\r\n <script>\r\n"
+                },
+                {
+                    "date": 1637738264511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,21 +18,23 @@\n           <li>SH</li>\r\n           <li>SH</li>\r\n         </ul>\r\n       </div>\r\n-      <!-- <div class=\"right\">\r\n+      <div class=\"right\">\r\n         <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n+        <span style=\"font-size: 20px\">位置名称</span>\r\n+        <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <div class=\"btns\">\r\n           <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">删除</el-button>\r\n         </div>\r\n         <div>\r\n           <el-button type=\"primary\" style=\"width: 100%\">设为当前位置</el-button>\r\n         </div>\r\n-      </div> -->\r\n-      <div class=\"right\">\r\n+      </div>\r\n+      <!-- <div class=\"right\">\r\n         <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <span style=\"font-size: 20px\">位置名称</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n@@ -43,9 +45,9 @@\n         </div>\r\n         <div>\r\n           <el-button type=\"primary\" style=\"width: 100%\">设为当前位置</el-button>\r\n         </div>\r\n-      </div>\r\n+      </div> -->\r\n     </div>\r\n   </div>\r\n </template>\r\n <script>\r\n"
+                },
+                {
+                    "date": 1637738278359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,10 @@\n       </div>\r\n       <div class=\"right\">\r\n         <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n-        <span style=\"font-size: 20px\">位置名称</span>\r\n-        <el-input style=\"margin-bottom: 20px\"></el-input>\r\n+        <!-- <span style=\"font-size: 20px\">位置名称</span>\r\n+        <el-input style=\"margin-bottom: 20px\"></el-input> -->\r\n         <div class=\"btns\">\r\n           <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">删除</el-button>\r\n"
+                },
+                {
+                    "date": 1637738310858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,10 @@\n       </div>\r\n       <div class=\"right\">\r\n         <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n-        <!-- <span style=\"font-size: 20px\">位置名称</span>\r\n-        <el-input style=\"margin-bottom: 20px\"></el-input> -->\r\n+        <span style=\"font-size: 20px\">位置名称</span>\r\n+        <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <div class=\"btns\">\r\n           <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n           <el-button type=\"primary\" style=\"width: 100%\">删除</el-button>\r\n"
+                },
+                {
+                    "date": 1637738349858,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,9 @@\n       </div>\r\n       <div class=\"right\">\r\n         <span style=\"font-size: 20px\">位置编码</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n+        <!-- 再添加一个span,input 就变宽了 -->\r\n         <span style=\"font-size: 20px\">位置名称</span>\r\n         <el-input style=\"margin-bottom: 20px\"></el-input>\r\n         <div class=\"btns\">\r\n           <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n@@ -32,22 +33,8 @@\n         <div>\r\n           <el-button type=\"primary\" style=\"width: 100%\">设为当前位置</el-button>\r\n         </div>\r\n       </div>\r\n-      <!-- <div class=\"right\">\r\n-        <span style=\"font-size: 20px\">位置编码</span>\r\n-        <el-input style=\"margin-bottom: 20px\"></el-input>\r\n-        <span style=\"font-size: 20px\">位置名称</span>\r\n-        <el-input style=\"margin-bottom: 20px\"></el-input>\r\n-        <div class=\"btns\">\r\n-          <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n-          <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n-          <el-button type=\"primary\" style=\"width: 100%\">删除</el-button>\r\n-        </div>\r\n-        <div>\r\n-          <el-button type=\"primary\" style=\"width: 100%\">设为当前位置</el-button>\r\n-        </div>\r\n-      </div> -->\r\n     </div>\r\n   </div>\r\n </template>\r\n <script>\r\n"
+                },
+                {
+                    "date": 1637738515832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,11 @@\n   padding: 10px 5px 0px 5px;\r\n   min-height: calc(100vh - 50px);\r\n   .locationConf {\r\n     display: flex;\r\n+    width: 100%;\r\n     .left {\r\n+      width: 20%;\r\n       margin-right: 20px;\r\n       ul li {\r\n         list-style: none;\r\n         font-size: 20px;\r\n"
+                }
+            ],
+            "date": 1637734098544,
+            "name": "Commit-0",
+            "content": "<template></template>\r\n<script>\r\nexport default {\r\n  name: \"locationConf\",\r\n};\r\n</script>\r\n<style scoped>\r\n</style>\r\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/views/expressType/index.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1637739080984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1637739080984,
+            "name": "Commit-0",
+            "content": "<template>\r\n  <div class=\"configuration-visitplace-container light-gray-background\">\r\n    <div\r\n      class=\"expressType\"\r\n      style=\"background: #fff; padding: 16px 16px 0; margin-bottom: 32px\"\r\n    >\r\n      <div class=\"left\">\r\n        <span style=\"font-size: 20px\">快递名称:</span>\r\n        <ul>\r\n          <li>圆通快递</li>\r\n          <li>圆通快递</li>\r\n          <li>圆通快递</li>\r\n          <li>圆通快递</li>\r\n          <li>圆通快递</li>\r\n          <li>圆通快递</li>\r\n          <li>圆通快递</li>\r\n          <li>圆通快递</li>\r\n          <li>圆通快递</li>\r\n        </ul>\r\n      </div>\r\n      <div class=\"right\">\r\n        <span style=\"font-size: 20px\">快递公司名称</span>\r\n        <el-input style=\"margin-bottom: 20px\"></el-input>\r\n        <div class=\"btns\">\r\n          <el-button type=\"primary\" style=\"width: 100%\">添加</el-button>\r\n          <el-button type=\"primary\" style=\"width: 100%\">修改</el-button>\r\n          <el-button type=\"primary\" style=\"width: 100%\">删除</el-button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nexport default {\r\n  name: \"expressType\",\r\n  // name: \"Visitplace\",\r\n  components: {},\r\n  data() {\r\n    return {};\r\n  },\r\n};\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n.configuration-visitplace-container {\r\n  padding: 10px 5px 0px 5px;\r\n  min-height: calc(100vh - 50px);\r\n  .expressType {\r\n    display: flex;\r\n    width: 100%;\r\n    .left {\r\n      width: 20%;\r\n      margin-right: 20px;\r\n      ul li {\r\n        list-style: none;\r\n        font-size: 20px;\r\n        line-height: 30px;\r\n      }\r\n    }\r\n    .right {\r\n      .btns {\r\n        display: flex;\r\n        justify-content: space-between;\r\n        margin-bottom: 50px;\r\n      }\r\n    }\r\n  }\r\n}\r\n</style>\r\n\r\n"
+        }
+    ]
+}

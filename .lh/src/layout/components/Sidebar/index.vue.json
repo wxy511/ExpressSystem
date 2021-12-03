@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/layout/components/Sidebar/index.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1637735195311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1637735195311,
+            "name": "Commit-0",
+            "content": "<template>\r\n  <div :class=\"{ 'has-logo': showLogo }\">\r\n    <logo v-if=\"showLogo\" :collapse=\"isCollapse\" />\r\n    <el-scrollbar wrap-class=\"scrollbar-wrapper\">\r\n      <el-menu\r\n        :default-active=\"activeMenu\"\r\n        :collapse=\"isCollapse\"\r\n        :unique-opened=\"false\"\r\n        :collapse-transition=\"false\"\r\n        active-text-color=\"#1f9476\"\r\n        mode=\"vertical\"\r\n      >\r\n        <!--  是否全部展开       :default-openeds=\"OpenMenue\" -->\r\n        <sidebar-item\r\n          v-for=\"route in rights_routes\"\r\n          :key=\"route.path\"\r\n          :item=\"route\"\r\n          :base-path=\"route.path\"\r\n        />\r\n      </el-menu>\r\n    </el-scrollbar>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport { mapGetters } from \"vuex\";\r\nimport Logo from \"./Logo\";\r\nimport SidebarItem from \"./SidebarItem\";\r\nimport variables from \"@/styles/variables.scss\";\r\n\r\nexport default {\r\n  components: { SidebarItem, Logo },\r\n  computed: {\r\n    ...mapGetters([\"rights_routes\", \"sidebar\"]),\r\n    routes() {\r\n      return this.$store.getters.rights_routes;\r\n      // return this.$router.options.routes\r\n    },\r\n    activeMenu() {\r\n      const route = this.$route;\r\n      const { meta, path } = route;\r\n      // if set path, the sidebar will highlight the path you set\r\n      if (meta.activeMenu) {\r\n        return meta.activeMenu;\r\n      }\r\n      return path;\r\n    },\r\n    OpenMenue() {\r\n      const openMenueArry = [];\r\n      this.$store.getters.rights_routes.forEach(function (item, index) {\r\n        if (typeof item.children !== \"undefined\") {\r\n          if (item.children.length > 1) {\r\n            openMenueArry.push(item.path);\r\n          }\r\n        }\r\n      });\r\n      return openMenueArry;\r\n    },\r\n    showLogo() {\r\n      return this.$store.state.settings.sidebarLogo;\r\n    },\r\n    variables() {\r\n      return variables;\r\n    },\r\n    isCollapse() {\r\n      return !this.sidebar.opened;\r\n    },\r\n  },\r\n};\r\n</script>\r\n"
+        }
+    ]
+}

@@ -1,0 +1,241 @@
+$lightGray: #f0f2f5;
+$pureWhite: #ffffff;
+$themeTitle: #08263a;
+
+@import './define.scss';
+.card-panel-white {
+    background: $pureWhite;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 6px;
+    h2 {
+        font-size: 24px;
+        font-weight: lighter;
+        color: $themeTitle;
+    }
+}
+.icdforminterval{
+    margin-top:-7px;
+}
+.editdeleteBtnSize {
+    padding: 5px 7px;
+    span {
+        svg {
+            width: 1.3em!important;
+            height: 1.3em!important;
+        }
+    }
+}
+.removelistBtnSize {
+    margin: 0 2px;
+    padding: 5px 6px;
+    border: 1px solid;
+    border-radius: 3px;
+    span {
+        svg {
+            vertical-align: -0.3em!important;
+            width: 1.3em!important;
+            height: 1.3em!important;
+        }
+    }
+}
+.input-row {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 1300px;
+}
+.input-col {
+    text-align: left;
+    font-size: 14px;
+    padding-top: 10px;
+}
+.textcenter {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.info-title
+{
+    color: #909399;
+}
+.icon-button {
+    background: rgb(240, 249, 235);
+    border-color:  rgb(240, 249, 235);
+    color: #67C23A;
+}
+.icon-button-view {
+    float: right;
+    div {
+        float: left;
+        margin: 0 2px;
+        padding: 3px 6px;
+        border: 1px solid;
+        border-radius: 3px;
+        svg {
+            vertical-align: -0.3em!important;
+            width: 1.3em!important;
+            height: 1.3em!important;
+        }
+    }
+}
+.full-width
+{
+    width: 100%;
+}
+.light-gray-background {
+    background: $lightGray;
+}
+
+.pc-margin-bottom {
+    margin-bottom: 20px;
+}
+
+.pc-padding-right {
+    margin-right: 20px;
+}
+
+.pc-padding-bottom {
+    margin-bottom: 20px;
+}
+
+.card-panel-white {
+    width: 100%;
+    background: $pureWhite;
+    padding: 30px;
+    box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.05);
+    h2 {
+        font-size: 24px;
+        font-weight: lighter;
+        color: $themeTitle;
+    }
+}
+
+.content-panel {
+    padding: 10px 30px 30px;
+}
+
+.nopadding-content-panel {
+    padding: 10px;
+}
+
+.list-selector {
+    margin-bottom: 15px;
+    span {
+        margin-right: 10px;
+    }
+}
+
+
+.user-name {
+    float: left;
+    padding: 0px 0;
+}
+
+.user-permission-view {
+    //float: right;
+    div {
+        float: left;
+        margin: 0 1px;
+        //padding: 4px 7px;
+        //border: 1px solid;
+        border-radius: 3px;
+        svg {
+            vertical-align: -0.3em!important;
+            width: 1.3em!important;
+            height: 1.3em!important;
+        }
+    }
+}
+
+.permission-full {
+    background: rgb(240, 249, 235);
+    border-color: #67C23A;
+    color: #67C23A;
+    border: 1px solid;
+    padding: 5px 9px;
+}
+
+.permission-half {
+    background: rgb(253, 246, 236);
+    border-color: #E6A23C;
+    color: #E6A23C;
+    border: 1px solid;
+    padding: 5px 9px;
+}
+
+.permission-disable {
+    background: rgb(244, 244, 245);
+    border-color: #909399;
+    color: #909399;
+    border: 1px solid;
+    padding: 5px 9px;
+}
+
+.permission-control {
+    .el-checkbox-button__inner {
+      padding:8px 8px!important;
+      svg {
+        width:1.4em!important;
+        height:1.4em!important;
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 1520px) {
+    .user-name {
+        float: none;
+        padding: 0;
+        margin-bottom:5px;
+    }
+    .user-permission-view {
+        float: none;
+        div {
+            &:first-child {
+                margin-left: 0px;
+            }
+            float: left;
+            margin: 0 1px;
+            padding: 1px 5px;
+            border: 1px solid;
+            border-radius: 3px;
+            svg {
+                vertical-align: -0.25em!important;
+                width: 1em!important;
+                height: 1em!important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1453px) {
+    .list-selector {
+        span {
+            display: block;
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+    }
+}
+.table-view {
+    word-break:keep-all!important;
+}
+
+.el-submenu .el-menu-item {
+    padding: 0 28px!important;
+}
+/* hack the IE11 */
+.el-table__header{
+    width: 100% !important;
+}
+.el-table__body{
+    width: 100% !important;
+}
+
+.risk-HighLevel{
+    color:red;
+}
+.risk-MidLevel{
+    color:#E6A23C;
+}

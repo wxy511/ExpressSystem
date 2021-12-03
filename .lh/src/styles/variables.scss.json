@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/styles/variables.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1638325797022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1638325797022,
+            "name": "Commit-0",
+            "content": "// sidebar\r\n$menuText:#1f2329;\r\n$menuActiveText:#0f6349;\r\n$subMenuActiveText:#1f9476;\r\n$menuActiveTextBg:#e8f7f3;\r\n\r\n$menuBg:#f9fbfe;\r\n$menuHover:#f8f7f7;\r\n\r\n$subMenuBg:#fafafc;\r\n$subMenuHover:#e8f7f3;\r\n$subMenuText:#818690;\r\n\r\n$sideBarWidth: 300px;\r\n\r\n:export {\r\n  menuText: $menuText;\r\n  menuActiveText: $menuActiveText;\r\n  subMenuActiveText: $subMenuActiveText;\r\n  menuBg: $menuBg;\r\n  menuHover: $menuHover;\r\n  subMenuBg: $subMenuBg;\r\n  subMenuHover: $subMenuHover;\r\n  sideBarWidth: $sideBarWidth;\r\n}\r\n"
+        }
+    ]
+}

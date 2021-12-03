@@ -1,0 +1,178 @@
+{
+    "sourceFile": "src/store/modules/user.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 40,
+            "patches": [
+                {
+                    "date": 1637577682035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1637577695545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n }\r\n \r\n const actions = {\r\n   // user login\r\n-  loginN({\r\n+  login({\r\n     commit\r\n   }, userInfo) {\r\n     const {\r\n       username,\r\n"
+                },
+                {
+                    "date": 1637590093597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import {\r\n-  loginN,\r\n+  login,\r\n   getInfo\r\n } from '@/api/user'\r\n import {\r\n   getToken,\r\n@@ -62,9 +62,9 @@\n       secret,\r\n       vefcode_img\r\n     } = userInfo\r\n     return new Promise((resolve, reject) => {\r\n-      loginN({\r\n+      login({\r\n         username: username.trim(),\r\n         secret: secret,\r\n         vefcode_img: vefcode_img\r\n       }).then(response => {\r\n"
+                },
+                {
+                    "date": 1637590618334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,8 +67,9 @@\n         username: username.trim(),\r\n         secret: secret,\r\n         vefcode_img: vefcode_img\r\n       }).then(response => {\r\n+\r\n         if (response.error !== 0) {\r\n           const data = response\r\n           throw new Error(data.error)\r\n         }\r\n"
+                },
+                {
+                    "date": 1637591287558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,9 +67,9 @@\n         username: username.trim(),\r\n         secret: secret,\r\n         vefcode_img: vefcode_img\r\n       }).then(response => {\r\n-\r\n+        console.log(\"-->2\", response)\r\n         if (response.error !== 0) {\r\n           const data = response\r\n           throw new Error(data.error)\r\n         }\r\n"
+                },
+                {
+                    "date": 1637640116602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -119,21 +119,21 @@\n           visitbranch = Branch\r\n         }\r\n         // 兼容权限\r\n         // 21-1-11 更新权限\r\n-        let userrights = ''\r\n-        if (username === 'admin') {\r\n-          userrights = 'admin'\r\n-        } else if (type === 'system') {\r\n-          userrights = 'system'\r\n-        } else if (typeof (data.user[0].RightsEx) !== 'undefined') {\r\n-          const strRights = Base64.decode(data.user[0].RightsEx)\r\n-          userrights = JSON.parse(strRights)\r\n-        } else if ((data.user[0].rights).length > 0) {\r\n-          userrights = 'vs'\r\n-        }\r\n+        // let userrights = ''\r\n+        // if (username === 'admin') {\r\n+        //   userrights = 'admin'\r\n+        // } else if (type === 'system') {\r\n+        //   userrights = 'system'\r\n+        // } else if (typeof (data.user[0].RightsEx) !== 'undefined') {\r\n+        //   const strRights = Base64.decode(data.user[0].RightsEx)\r\n+        //   userrights = JSON.parse(strRights)\r\n+        // } else if ((data.user[0].rights).length > 0) {\r\n+        //   userrights = 'vs'\r\n+        // }\r\n         commit('SET_NAME', username)\r\n-        commit('SET_USERRIGHTS', userrights)\r\n+        // commit('SET_USERRIGHTS', userrights)\r\n         commit('SET_USERID', userid)\r\n         commit('SET_VISITBRACNCH', visitbranch)\r\n         SetUserName(username)\r\n \r\n"
+                },
+                {
+                    "date": 1637653492455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -75,9 +75,9 @@\n         }\r\n         if (response.error === 0) {\r\n           // /\r\n           const data = response\r\n-          const token = data.token\r\n+          const token = \"ICDTest\"\r\n           commit('SET_TOKEN', token)\r\n           setToken(token)\r\n           resolve()\r\n         }\r\n@@ -87,55 +87,100 @@\n     })\r\n   },\r\n \r\n   // get user info\r\n+  // getInfo({\r\n+  //   commit,\r\n+  //   state\r\n+  // }) {\r\n+  //   return new Promise((resolve, reject) => {\r\n+  //     getInfo(state.token).then(response => {\r\n+  //       const data = response\r\n+  //       if (!data) {\r\n+  //         return reject('Verification failed, please Login again.')\r\n+  //       }\r\n+  //       let username = ''\r\n+  //       let userid = ''\r\n+  //       // let password = ''\r\n+  //       let visitbranch = []\r\n+  //       const type = ''\r\n+\r\n+  //       if (typeof (data.user[0].username) !== 'undefined') {\r\n+  //         username = data.user[0].username\r\n+  //       }\r\n+  //       if (typeof (data.user[0].userid) !== 'undefined') {\r\n+  //         userid = data.user[0].userid\r\n+  //       }\r\n+  //       if (username === 'admin') {\r\n+  //         visitbranch = 'admin'\r\n+  //       } else if (type === 'system') {\r\n+  //         visitbranch = 'admin'\r\n+  //       } else {\r\n+  //         const Branch = data.user[0].branch.replace(/</g, '').replace(/>/g, ' ').split(' ')\r\n+  //         visitbranch = Branch\r\n+  //       }\r\n+  //       // 兼容权限\r\n+  //       // 21-1-11 更新权限\r\n+  //       // let userrights = ''\r\n+  //       // if (username === 'admin') {\r\n+  //       //   userrights = 'admin'\r\n+  //       // } else if (type === 'system') {\r\n+  //       //   userrights = 'system'\r\n+  //       // } else if (typeof (data.user[0].RightsEx) !== 'undefined') {\r\n+  //       //   const strRights = Base64.decode(data.user[0].RightsEx)\r\n+  //       //   userrights = JSON.parse(strRights)\r\n+  //       // } else if ((data.user[0].rights).length > 0) {\r\n+  //       //   userrights = 'vs'\r\n+  //       // }\r\n+  //       commit('SET_NAME', username)\r\n+  //       // commit('SET_USERRIGHTS', userrights)\r\n+  //       commit('SET_USERID', userid)\r\n+  //       commit('SET_VISITBRACNCH', visitbranch)\r\n+  //       SetUserName(username)\r\n+\r\n+  //       resolve(data)\r\n+  //     }).catch(error => {\r\n+  //       reject(error)\r\n+  //     })\r\n+  //   })\r\n+  // },\r\n+\r\n+  // user logout\r\n   getInfo({\r\n     commit,\r\n     state\r\n   }) {\r\n     return new Promise((resolve, reject) => {\r\n-      getInfo(state.token).then(response => {\r\n+      const sendData = {\r\n+        username: state.name\r\n+      }\r\n+      getInfo(state).then(response => {\r\n         const data = response\r\n         if (!data) {\r\n           return reject('Verification failed, please Login again.')\r\n         }\r\n         let username = ''\r\n         let userid = ''\r\n-        // let password = ''\r\n-        let visitbranch = []\r\n         const type = ''\r\n \r\n-        if (typeof (data.user[0].username) !== 'undefined') {\r\n-          username = data.user[0].username\r\n+        if (typeof (data.username) !== 'undefined') {\r\n+          username = data.username\r\n         }\r\n-        if (typeof (data.user[0].userid) !== 'undefined') {\r\n-          userid = data.user[0].userid\r\n+        if (typeof (data.userid) !== 'undefined') {\r\n+          userid = data.userid\r\n         }\r\n+\r\n+        // 兼容权限\r\n+        // 21-1-11 更新权限\r\n+        let userrights = ''\r\n         if (username === 'admin') {\r\n-          visitbranch = 'admin'\r\n+          userrights = 'admin'\r\n         } else if (type === 'system') {\r\n-          visitbranch = 'admin'\r\n-        } else {\r\n-          const Branch = data.user[0].branch.replace(/</g, '').replace(/>/g, ' ').split(' ')\r\n-          visitbranch = Branch\r\n+          userrights = 'system'\r\n         }\r\n-        // 兼容权限\r\n-        // 21-1-11 更新权限\r\n-        // let userrights = ''\r\n-        // if (username === 'admin') {\r\n-        //   userrights = 'admin'\r\n-        // } else if (type === 'system') {\r\n-        //   userrights = 'system'\r\n-        // } else if (typeof (data.user[0].RightsEx) !== 'undefined') {\r\n-        //   const strRights = Base64.decode(data.user[0].RightsEx)\r\n-        //   userrights = JSON.parse(strRights)\r\n-        // } else if ((data.user[0].rights).length > 0) {\r\n-        //   userrights = 'vs'\r\n-        // }\r\n         commit('SET_NAME', username)\r\n-        // commit('SET_USERRIGHTS', userrights)\r\n         commit('SET_USERID', userid)\r\n-        commit('SET_VISITBRACNCH', visitbranch)\r\n+        commit('SET_USERRIGHTS', userrights)\r\n         SetUserName(username)\r\n \r\n         resolve(data)\r\n       }).catch(error => {\r\n@@ -143,9 +188,8 @@\n       })\r\n     })\r\n   },\r\n \r\n-  // user logout\r\n   logout({\r\n     commit\r\n   }) {\r\n     return new Promise(resolve => {\r\n"
+                },
+                {
+                    "date": 1637653691984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -152,9 +152,9 @@\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n         username: state.name\r\n       }\r\n-      getInfo(state).then(response => {\r\n+      getInfo(sendData).then(response => {\r\n         const data = response\r\n         if (!data) {\r\n           return reject('Verification failed, please Login again.')\r\n         }\r\n"
+                },
+                {
+                    "date": 1637653804008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -143,9 +143,8 @@\n   //     })\r\n   //   })\r\n   // },\r\n \r\n-  // user logout\r\n   getInfo({\r\n     commit,\r\n     state\r\n   }) {\r\n@@ -188,8 +187,9 @@\n       })\r\n     })\r\n   },\r\n \r\n+  // user logout\r\n   logout({\r\n     commit\r\n   }) {\r\n     return new Promise(resolve => {\r\n"
+                },
+                {
+                    "date": 1637654121647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,8 +53,9 @@\n }\r\n \r\n const actions = {\r\n   // user login\r\n+  //?\r\n   login({\r\n     commit\r\n   }, userInfo) {\r\n     const {\r\n"
+                },
+                {
+                    "date": 1637731853188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     token: getToken(),\r\n     name: GetUserName(),\r\n     avatar: '',\r\n     userrights: '',\r\n-    password: '',\r\n+    pwdaes: '',\r\n     visitcode: []\r\n   }\r\n }\r\n \r\n@@ -59,15 +59,15 @@\n     commit\r\n   }, userInfo) {\r\n     const {\r\n       username,\r\n-      secret,\r\n+      pwdaes,\r\n       vefcode_img\r\n     } = userInfo\r\n     return new Promise((resolve, reject) => {\r\n       login({\r\n         username: username.trim(),\r\n-        secret: secret,\r\n+        pwdaes: pwdaes,\r\n         vefcode_img: vefcode_img\r\n       }).then(response => {\r\n         console.log(\"-->2\", response)\r\n         if (response.error !== 0) {\r\n"
+                },
+                {
+                    "date": 1637743409922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -143,9 +143,8 @@\n   //       reject(error)\r\n   //     })\r\n   //   })\r\n   // },\r\n-\r\n   getInfo({\r\n     commit,\r\n     state\r\n   }) {\r\n@@ -187,9 +186,8 @@\n         reject(error)\r\n       })\r\n     })\r\n   },\r\n-\r\n   // user logout\r\n   logout({\r\n     commit\r\n   }) {\r\n@@ -212,9 +210,8 @@\n \r\n       resolve()\r\n     })\r\n   },\r\n-\r\n   // remove token\r\n   resetToken({\r\n     commit\r\n   }) {\r\n"
+                },
+                {
+                    "date": 1638343794934,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,8 +62,9 @@\n       username,\r\n       pwdaes,\r\n       vefcode_img\r\n     } = userInfo\r\n+    console.log(\"aaa\", userInfo)\r\n     return new Promise((resolve, reject) => {\r\n       login({\r\n         username: username.trim(),\r\n         pwdaes: pwdaes,\r\n"
+                },
+                {
+                    "date": 1638344025679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,9 +67,9 @@\n     return new Promise((resolve, reject) => {\r\n       login({\r\n         username: username.trim(),\r\n         pwdaes: pwdaes,\r\n-        vefcode_img: vefcode_img\r\n+\r\n       }).then(response => {\r\n         console.log(\"-->2\", response)\r\n         if (response.error !== 0) {\r\n           const data = response\r\n"
+                },
+                {
+                    "date": 1638344053797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,9 +67,9 @@\n     return new Promise((resolve, reject) => {\r\n       login({\r\n         username: username.trim(),\r\n         pwdaes: pwdaes,\r\n-\r\n+        vefcode_img: vefcode_img\r\n       }).then(response => {\r\n         console.log(\"-->2\", response)\r\n         if (response.error !== 0) {\r\n           const data = response\r\n"
+                },
+                {
+                    "date": 1638344075998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,9 +67,9 @@\n     return new Promise((resolve, reject) => {\r\n       login({\r\n         username: username.trim(),\r\n         pwdaes: pwdaes,\r\n-        vefcode_img: vefcode_img\r\n+\r\n       }).then(response => {\r\n         console.log(\"-->2\", response)\r\n         if (response.error !== 0) {\r\n           const data = response\r\n"
+                },
+                {
+                    "date": 1638344139558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n       username,\r\n       pwdaes,\r\n       vefcode_img\r\n     } = userInfo\r\n-    console.log(\"aaa\", userInfo)\r\n+\r\n     return new Promise((resolve, reject) => {\r\n       login({\r\n         username: username.trim(),\r\n         pwdaes: pwdaes,\r\n"
+                },
+                {
+                    "date": 1638355235662,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,9 @@\n       username,\r\n       pwdaes,\r\n       vefcode_img\r\n     } = userInfo\r\n-\r\n+    console.log(\"111\", userInfo)\r\n     return new Promise((resolve, reject) => {\r\n       login({\r\n         username: username.trim(),\r\n         pwdaes: pwdaes,\r\n"
+                },
+                {
+                    "date": 1638355450592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,9 +62,8 @@\n       username,\r\n       pwdaes,\r\n       vefcode_img\r\n     } = userInfo\r\n-    console.log(\"111\", userInfo)\r\n     return new Promise((resolve, reject) => {\r\n       login({\r\n         username: username.trim(),\r\n         pwdaes: pwdaes,\r\n"
+                },
+                {
+                    "date": 1638357959413,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,8 +62,9 @@\n       username,\r\n       pwdaes,\r\n       vefcode_img\r\n     } = userInfo\r\n+    console.log(\"111\", userInfo)\r\n     return new Promise((resolve, reject) => {\r\n       login({\r\n         username: username.trim(),\r\n         pwdaes: pwdaes,\r\n"
+                },
+                {
+                    "date": 1638358290735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,14 +62,12 @@\n       username,\r\n       pwdaes,\r\n       vefcode_img\r\n     } = userInfo\r\n-    console.log(\"111\", userInfo)\r\n     return new Promise((resolve, reject) => {\r\n       login({\r\n         username: username.trim(),\r\n         pwdaes: pwdaes,\r\n-\r\n       }).then(response => {\r\n         console.log(\"-->2\", response)\r\n         if (response.error !== 0) {\r\n           const data = response\r\n"
+                },
+                {
+                    "date": 1638358955666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,12 @@\n     name: GetUserName(),\r\n     avatar: '',\r\n     userrights: '',\r\n     pwdaes: '',\r\n-    visitcode: []\r\n+    visitcode: [],\r\n+    //add\r\n+    loginFormDe: {}\r\n+    //end\r\n   }\r\n }\r\n \r\n const state = getDefaultState()\r\n@@ -52,8 +55,14 @@\n   }\r\n }\r\n \r\n const actions = {\r\n+  //add\r\n+  formInfo(state) {\r\n+    console.log(\"f\", state.loginFormDe)\r\n+\r\n+  },\r\n+  //end\r\n   // user login\r\n   //?\r\n   login({\r\n     commit\r\n"
+                },
+                {
+                    "date": 1638359086615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,11 +56,10 @@\n }\r\n \r\n const actions = {\r\n   //add\r\n-  formInfo(state) {\r\n-    console.log(\"f\", state.loginFormDe)\r\n-\r\n+  formInfo(state, loginFormDe) {\r\n+    console.log(\"f\", loginFormDe)\r\n   },\r\n   //end\r\n   // user login\r\n   //?\r\n"
+                },
+                {
+                    "date": 1638359341020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     userrights: '',\r\n     pwdaes: '',\r\n     visitcode: [],\r\n     //add\r\n-    loginFormDe: {}\r\n+    // loginFormDe: {}\r\n     //end\r\n   }\r\n }\r\n \r\n@@ -56,11 +56,11 @@\n }\r\n \r\n const actions = {\r\n   //add\r\n-  formInfo(state, loginFormDe) {\r\n-    console.log(\"f\", loginFormDe)\r\n-  },\r\n+  // formInfo(state, loginFormDe) {\r\n+  //   console.log(\"f\", loginFormDe)\r\n+  // },\r\n   //end\r\n   // user login\r\n   //?\r\n   login({\r\n"
+                },
+                {
+                    "date": 1638360391351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,11 +22,8 @@\n     avatar: '',\r\n     userrights: '',\r\n     pwdaes: '',\r\n     visitcode: [],\r\n-    //add\r\n-    // loginFormDe: {}\r\n-    //end\r\n   }\r\n }\r\n \r\n const state = getDefaultState()\r\n@@ -55,13 +52,8 @@\n   }\r\n }\r\n \r\n const actions = {\r\n-  //add\r\n-  // formInfo(state, loginFormDe) {\r\n-  //   console.log(\"f\", loginFormDe)\r\n-  // },\r\n-  //end\r\n   // user login\r\n   //?\r\n   login({\r\n     commit\r\n"
+                },
+                {
+                    "date": 1638497493266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -146,8 +146,9 @@\n   getInfo({\r\n     commit,\r\n     state\r\n   }) {\r\n+    console.log(\"111\")\r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n         username: state.name\r\n       }\r\n"
+                },
+                {
+                    "date": 1638497593151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -146,14 +146,15 @@\n   getInfo({\r\n     commit,\r\n     state\r\n   }) {\r\n-    console.log(\"111\")\r\n+\r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n         username: state.name\r\n       }\r\n       getInfo(sendData).then(response => {\r\n+        console.log(\"111\", response)\r\n         const data = response\r\n         if (!data) {\r\n           return reject('Verification failed, please Login again.')\r\n         }\r\n"
+                },
+                {
+                    "date": 1638497676606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -152,9 +152,9 @@\n       const sendData = {\r\n         username: state.name\r\n       }\r\n       getInfo(sendData).then(response => {\r\n-        console.log(\"111\", response)\r\n+        console.log(\"111\", sendData)\r\n         const data = response\r\n         if (!data) {\r\n           return reject('Verification failed, please Login again.')\r\n         }\r\n"
+                },
+                {
+                    "date": 1638497725040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,9 +149,10 @@\n   }) {\r\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n-        username: state.name\r\n+        // username: state.name\r\n+        username: admin\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n         const data = response\r\n"
+                },
+                {
+                    "date": 1638497732092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,9 +150,9 @@\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n         // username: state.name\r\n-        username: admin\r\n+        username: \"admin\"\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n         const data = response\r\n"
+                },
+                {
+                    "date": 1638497873487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,10 +149,10 @@\n   }) {\r\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n-        // username: state.name\r\n-        username: \"admin\"\r\n+        username: state.name\r\n+        //username: \"admin\"\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n         const data = response\r\n"
+                },
+                {
+                    "date": 1638498501500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,9 +149,9 @@\n   }) {\r\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n-        username: state.name\r\n+        //username: state.name\r\n         //username: \"admin\"\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n"
+                },
+                {
+                    "date": 1638498546580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,9 +150,9 @@\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n         //username: state.name\r\n-        //username: \"admin\"\r\n+        username: \"admin\"\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n         const data = response\r\n"
+                },
+                {
+                    "date": 1638498800974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,10 +149,10 @@\n   }) {\r\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n-        //username: state.name\r\n-        username: \"admin\"\r\n+        username: state.name\r\n+        //username: \"admin\"\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n         const data = response\r\n"
+                },
+                {
+                    "date": 1638500595385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,10 +149,10 @@\n   }) {\r\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n-        username: state.name\r\n-        //username: \"admin\"\r\n+        //username: state.name\r\n+        username: \"admin\"\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n         const data = response\r\n"
+                },
+                {
+                    "date": 1638501008600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,9 +150,9 @@\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n         //username: state.name\r\n-        username: \"admin\"\r\n+        // username: \"admin\"\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n         const data = response\r\n"
+                },
+                {
+                    "date": 1638501018581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,9 +149,9 @@\n   }) {\r\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n-        //username: state.name\r\n+        username: state.name\r\n         // username: \"admin\"\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n"
+                },
+                {
+                    "date": 1638502061501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,10 +149,10 @@\n   }) {\r\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n-        username: state.name\r\n-        // username: \"admin\"\r\n+        // username: state.name\r\n+        username: \"admin\"\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n         const data = response\r\n"
+                },
+                {
+                    "date": 1638502399840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,10 +149,10 @@\n   }) {\r\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n-        // username: state.name\r\n-        username: \"admin\"\r\n+        username: state.name\r\n+        //username: \"admin\"\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n         const data = response\r\n"
+                },
+                {
+                    "date": 1638503005026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,9 +150,9 @@\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n         username: state.name\r\n-        //username: \"admin\"\r\n+        //username: \"admin\"    这个name 是存储到浏览器中的，如果浏览器清缓存这个name就会消失，就会登录不进去\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n         const data = response\r\n"
+                },
+                {
+                    "date": 1638503017935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -150,9 +150,9 @@\n \r\n     return new Promise((resolve, reject) => {\r\n       const sendData = {\r\n         username: state.name\r\n-        //username: \"admin\"    这个name 是存储到浏览器中的，如果浏览器清缓存这个name就会消失，就会登录不进去\r\n+        //username: \"admin\"    这个name 是存储到浏览器中的，如果浏览器清缓存这个name就会消失，就会登录不进去   需要改\r\n       }\r\n       getInfo(sendData).then(response => {\r\n         console.log(\"111\", sendData)\r\n         const data = response\r\n"
+                }
+            ],
+            "date": 1637577682035,
+            "name": "Commit-0",
+            "content": "import {\r\n  loginN,\r\n  getInfo\r\n} from '@/api/user'\r\nimport {\r\n  getToken,\r\n  setToken,\r\n  removeToken\r\n} from '@/utils/auth'\r\nimport {\r\n  resetRouter\r\n} from '@/router'\r\nimport {\r\n  GetUserName,\r\n  SetUserName\r\n} from '@/utils/info'\r\nvar Base64 = require('js-base64').Base64\r\nconst getDefaultState = () => {\r\n  return {\r\n    token: getToken(),\r\n    name: GetUserName(),\r\n    avatar: '',\r\n    userrights: '',\r\n    password: '',\r\n    visitcode: []\r\n  }\r\n}\r\n\r\nconst state = getDefaultState()\r\n\r\nconst mutations = {\r\n  RESET_STATE: (state) => {\r\n    Object.assign(state, getDefaultState())\r\n  },\r\n  SET_TOKEN: (state, token) => {\r\n    state.token = token\r\n  },\r\n  SET_NAME: (state, name) => {\r\n    state.name = name\r\n  },\r\n  // SET_PASSWORD: (state, password) => {\r\n  //   state.password = password\r\n  // },\r\n  SET_AVATAR: (state, avatar) => {\r\n    state.avatar = avatar\r\n  },\r\n  SET_USERRIGHTS: (state, userrights) => {\r\n    state.userrights = userrights\r\n  },\r\n  SET_USERID: (state, userid) => {\r\n    state.userid = userid\r\n  }\r\n}\r\n\r\nconst actions = {\r\n  // user login\r\n  loginN({\r\n    commit\r\n  }, userInfo) {\r\n    const {\r\n      username,\r\n      secret,\r\n      vefcode_img\r\n    } = userInfo\r\n    return new Promise((resolve, reject) => {\r\n      loginN({\r\n        username: username.trim(),\r\n        secret: secret,\r\n        vefcode_img: vefcode_img\r\n      }).then(response => {\r\n        if (response.error !== 0) {\r\n          const data = response\r\n          throw new Error(data.error)\r\n        }\r\n        if (response.error === 0) {\r\n          // /\r\n          const data = response\r\n          const token = data.token\r\n          commit('SET_TOKEN', token)\r\n          setToken(token)\r\n          resolve()\r\n        }\r\n      }).catch(error => {\r\n        reject(error)\r\n      })\r\n    })\r\n  },\r\n\r\n  // get user info\r\n  getInfo({\r\n    commit,\r\n    state\r\n  }) {\r\n    return new Promise((resolve, reject) => {\r\n      getInfo(state.token).then(response => {\r\n        const data = response\r\n        if (!data) {\r\n          return reject('Verification failed, please Login again.')\r\n        }\r\n        let username = ''\r\n        let userid = ''\r\n        // let password = ''\r\n        let visitbranch = []\r\n        const type = ''\r\n\r\n        if (typeof (data.user[0].username) !== 'undefined') {\r\n          username = data.user[0].username\r\n        }\r\n        if (typeof (data.user[0].userid) !== 'undefined') {\r\n          userid = data.user[0].userid\r\n        }\r\n        if (username === 'admin') {\r\n          visitbranch = 'admin'\r\n        } else if (type === 'system') {\r\n          visitbranch = 'admin'\r\n        } else {\r\n          const Branch = data.user[0].branch.replace(/</g, '').replace(/>/g, ' ').split(' ')\r\n          visitbranch = Branch\r\n        }\r\n        // 兼容权限\r\n        // 21-1-11 更新权限\r\n        let userrights = ''\r\n        if (username === 'admin') {\r\n          userrights = 'admin'\r\n        } else if (type === 'system') {\r\n          userrights = 'system'\r\n        } else if (typeof (data.user[0].RightsEx) !== 'undefined') {\r\n          const strRights = Base64.decode(data.user[0].RightsEx)\r\n          userrights = JSON.parse(strRights)\r\n        } else if ((data.user[0].rights).length > 0) {\r\n          userrights = 'vs'\r\n        }\r\n        commit('SET_NAME', username)\r\n        commit('SET_USERRIGHTS', userrights)\r\n        commit('SET_USERID', userid)\r\n        commit('SET_VISITBRACNCH', visitbranch)\r\n        SetUserName(username)\r\n\r\n        resolve(data)\r\n      }).catch(error => {\r\n        reject(error)\r\n      })\r\n    })\r\n  },\r\n\r\n  // user logout\r\n  logout({\r\n    commit\r\n  }) {\r\n    return new Promise(resolve => {\r\n      // 登出则清除Token与router\r\n      // setTimeout(() => {\r\n\r\n      // eslint-disable-next-line\r\n      if (process.env.NODE_ENV === 'development') {\r\n        resetRouter()\r\n        commit('RESET_STATE')\r\n        commit('SET_USERID')\r\n        commit('SET_NAME')\r\n        location.reload() // 强制刷新\r\n      } else {\r\n        // eslint-disable-next-line\r\n        window.location.href = '/s_logout/'\r\n      }\r\n      removeToken() // must remove  token  first\r\n\r\n      resolve()\r\n    })\r\n  },\r\n\r\n  // remove token\r\n  resetToken({\r\n    commit\r\n  }) {\r\n    return new Promise(resolve => {\r\n      removeToken() // must remove  token  first\r\n      commit('RESET_STATE')\r\n      resolve()\r\n    })\r\n  }\r\n}\r\n\r\nexport default {\r\n  namespaced: true,\r\n  state,\r\n  mutations,\r\n  actions\r\n}\r\n"
+        }
+    ]
+}

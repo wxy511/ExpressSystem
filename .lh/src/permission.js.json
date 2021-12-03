@@ -1,0 +1,98 @@
+{
+    "sourceFile": "src/permission.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1637633629005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1637633674133,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -82,9 +82,9 @@\n   } else {\r\n     /* has no token*/\r\n     if (whiteList.indexOf(to.path) !== -1) {\r\n       // in the free login whitelist, go directly\r\n-      next(`/login?redirect=${to.path}`)\r\n+      next()\r\n     } else {\r\n       // other pages that do not have permission to access are redirected to the login page.\r\n       next(`/login?redirect=${to.path}`)\r\n       NProgress.done()\r\n"
+                },
+                {
+                    "date": 1637639843593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,8 @@\n   // determine whether the user has logged in\r\n   // f5回到首页？\r\n   const hasToken = getToken()\r\n   if (hasToken) {\r\n-    console.log(11112)\r\n     if (to.path === '/login') {\r\n       // if is logged in, redirect to the home page\r\n       next({\r\n         path: '/'\r\n@@ -57,19 +56,20 @@\n \r\n           const routertest = await store.dispatch('rights/generateRoutes', rights)\r\n           router.addRoutes(routertest)\r\n           // 解决f5刷新回到首页与路由权限404问题\r\n-          if (from.path === '/login') {\r\n-            next({\r\n-              ...to,\r\n-              name: 'Dashboard'\r\n-            })\r\n-          } else {\r\n-            next({\r\n-              ...to,\r\n-              replace: true\r\n-            })\r\n-          }\r\n+          // if (from.path === '/login') {\r\n+          //   next({\r\n+          //     ...to,\r\n+          //     name: 'Dashboard'\r\n+          //   })\r\n+          // } else {\r\n+          //   next({\r\n+          //     ...to,\r\n+          //     replace: true\r\n+          //   })\r\n+          // }\r\n+          next()\r\n         } catch (error) {\r\n           // remove token and go to login page to re-login\r\n           await store.dispatch('user/resetToken')\r\n           Message.error('generateRoutes error')\r\n"
+                },
+                {
+                    "date": 1637640014435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,9 @@\n         next()\r\n       } else {\r\n         try {\r\n           // get user info\r\n+          const userinfo = await store.dispatch('user/getinfo', hasToken)\r\n           // console.log(window.location.href, window.location.search)\r\n           var rights = ''\r\n \r\n           rights = {\r\n"
+                },
+                {
+                    "date": 1637640321006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         next()\r\n       } else {\r\n         try {\r\n           // get user info\r\n-          const userinfo = await store.dispatch('user/getinfo', hasToken)\r\n+          //const userinfo = await store.dispatch('user/getinfo', hasToken)\r\n           // console.log(window.location.href, window.location.search)\r\n           var rights = ''\r\n \r\n           rights = {\r\n"
+                },
+                {
+                    "date": 1637653586278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,31 +46,31 @@\n         next()\r\n       } else {\r\n         try {\r\n           // get user info\r\n-          //const userinfo = await store.dispatch('user/getinfo', hasToken)\r\n+          const userinfo = await store.dispatch('user/getinfo', hasToken)\r\n           // console.log(window.location.href, window.location.search)\r\n           var rights = ''\r\n \r\n           rights = {\r\n-            username: 'admin'\r\n+            username: userinfo.username\r\n           }\r\n \r\n           const routertest = await store.dispatch('rights/generateRoutes', rights)\r\n           router.addRoutes(routertest)\r\n           // 解决f5刷新回到首页与路由权限404问题\r\n-          // if (from.path === '/login') {\r\n-          //   next({\r\n-          //     ...to,\r\n-          //     name: 'Dashboard'\r\n-          //   })\r\n-          // } else {\r\n-          //   next({\r\n-          //     ...to,\r\n-          //     replace: true\r\n-          //   })\r\n-          // }\r\n-          next()\r\n+          if (from.path === '/login') {\r\n+            next({\r\n+              ...to,\r\n+              name: 'Dashboard'\r\n+            })\r\n+          } else {\r\n+            next({\r\n+              ...to,\r\n+              replace: true\r\n+            })\r\n+          }\r\n+          // next()\r\n         } catch (error) {\r\n           // remove token and go to login page to re-login\r\n           await store.dispatch('user/resetToken')\r\n           Message.error('generateRoutes error')\r\n"
+                },
+                {
+                    "date": 1637653617429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         next()\r\n       } else {\r\n         try {\r\n           // get user info\r\n-          const userinfo = await store.dispatch('user/getinfo', hasToken)\r\n+          const userinfo = await store.dispatch('user/getinfo')\r\n           // console.log(window.location.href, window.location.search)\r\n           var rights = ''\r\n \r\n           rights = {\r\n"
+                },
+                {
+                    "date": 1637653832501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         next()\r\n       } else {\r\n         try {\r\n           // get user info\r\n-          const userinfo = await store.dispatch('user/getinfo')\r\n+          const userinfo = await store.dispatch('user/getiInfo')\r\n           // console.log(window.location.href, window.location.search)\r\n           var rights = ''\r\n \r\n           rights = {\r\n"
+                },
+                {
+                    "date": 1637653846648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         next()\r\n       } else {\r\n         try {\r\n           // get user info\r\n-          const userinfo = await store.dispatch('user/getiInfo')\r\n+          const userinfo = await store.dispatch('user/getInfo')\r\n           // console.log(window.location.href, window.location.search)\r\n           var rights = ''\r\n \r\n           rights = {\r\n"
+                },
+                {
+                    "date": 1638495399197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -73,8 +73,9 @@\n         } catch (error) {\r\n           // remove token and go to login page to re-login\r\n           await store.dispatch('user/resetToken')\r\n           Message.error('generateRoutes error')\r\n+          console.log(\"111\")\r\n           // next(`/login?redirect=${to.path}`)  此行会导致输入错误的url后登陆异常\r\n           next(`/login`)\r\n           NProgress.done()\r\n         }\r\n"
+                },
+                {
+                    "date": 1638496764088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,12 +70,13 @@\n             })\r\n           }\r\n           // next()\r\n         } catch (error) {\r\n+          console.log(\"111\")\r\n           // remove token and go to login page to re-login\r\n           await store.dispatch('user/resetToken')\r\n           Message.error('generateRoutes error')\r\n-          console.log(\"111\")\r\n+\r\n           // next(`/login?redirect=${to.path}`)  此行会导致输入错误的url后登陆异常\r\n           next(`/login`)\r\n           NProgress.done()\r\n         }\r\n"
+                },
+                {
+                    "date": 1638496781898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,9 +70,9 @@\n             })\r\n           }\r\n           // next()\r\n         } catch (error) {\r\n-          console.log(\"111\")\r\n+\r\n           // remove token and go to login page to re-login\r\n           await store.dispatch('user/resetToken')\r\n           Message.error('generateRoutes error')\r\n \r\n"
+                },
+                {
+                    "date": 1638496789951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,9 @@\n   // f5回到首页？\r\n   const hasToken = getToken()\r\n   if (hasToken) {\r\n     if (to.path === '/login') {\r\n+      console.log(\"111\")\r\n       // if is logged in, redirect to the home page\r\n       next({\r\n         path: '/'\r\n       })\r\n"
+                },
+                {
+                    "date": 1638496816437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,15 +34,16 @@\n   // f5回到首页？\r\n   const hasToken = getToken()\r\n   if (hasToken) {\r\n     if (to.path === '/login') {\r\n-      console.log(\"111\")\r\n+\r\n       // if is logged in, redirect to the home page\r\n       next({\r\n         path: '/'\r\n       })\r\n       NProgress.done()\r\n     } else {\r\n+      console.log(\"111\")\r\n       const hasRights = store.getters.userrights && store.getters.userrights !== '' // store.getters.userrights > 0     \r\n       if (hasRights) {\r\n         next()\r\n       } else {\r\n"
+                },
+                {
+                    "date": 1638496843765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,9 @@\n       const hasRights = store.getters.userrights && store.getters.userrights !== '' // store.getters.userrights > 0     \r\n       if (hasRights) {\r\n         next()\r\n       } else {\r\n+        console.log(\"222\")\r\n         try {\r\n           // get user info\r\n           const userinfo = await store.dispatch('user/getInfo')\r\n           // console.log(window.location.href, window.location.search)\r\n"
+                },
+                {
+                    "date": 1638496890222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,22 +33,23 @@\n   // determine whether the user has logged in\r\n   // f5回到首页？\r\n   const hasToken = getToken()\r\n   if (hasToken) {\r\n+    console.log(\"222\")\r\n     if (to.path === '/login') {\r\n \r\n       // if is logged in, redirect to the home page\r\n       next({\r\n         path: '/'\r\n       })\r\n       NProgress.done()\r\n     } else {\r\n-      console.log(\"111\")\r\n+\r\n       const hasRights = store.getters.userrights && store.getters.userrights !== '' // store.getters.userrights > 0     \r\n       if (hasRights) {\r\n         next()\r\n       } else {\r\n-        console.log(\"222\")\r\n+\r\n         try {\r\n           // get user info\r\n           const userinfo = await store.dispatch('user/getInfo')\r\n           // console.log(window.location.href, window.location.search)\r\n"
+                },
+                {
+                    "date": 1638496912510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,23 +33,19 @@\n   // determine whether the user has logged in\r\n   // f5回到首页？\r\n   const hasToken = getToken()\r\n   if (hasToken) {\r\n-    console.log(\"222\")\r\n     if (to.path === '/login') {\r\n-\r\n       // if is logged in, redirect to the home page\r\n       next({\r\n         path: '/'\r\n       })\r\n       NProgress.done()\r\n     } else {\r\n-\r\n       const hasRights = store.getters.userrights && store.getters.userrights !== '' // store.getters.userrights > 0     \r\n       if (hasRights) {\r\n         next()\r\n       } else {\r\n-\r\n         try {\r\n           // get user info\r\n           const userinfo = await store.dispatch('user/getInfo')\r\n           // console.log(window.location.href, window.location.search)\r\n"
+                },
+                {
+                    "date": 1638496931143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   // determine whether the user has logged in\r\n   // f5回到首页？\r\n   const hasToken = getToken()\r\n   if (hasToken) {\r\n-    if (to.path === '/login') {\r\n+    if (to.path == '/login') {\r\n       // if is logged in, redirect to the home page\r\n       next({\r\n         path: '/'\r\n       })\r\n"
+                },
+                {
+                    "date": 1638496941101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   // determine whether the user has logged in\r\n   // f5回到首页？\r\n   const hasToken = getToken()\r\n   if (hasToken) {\r\n-    if (to.path == '/login') {\r\n+    if (to.path === '/login') {\r\n       // if is logged in, redirect to the home page\r\n       next({\r\n         path: '/'\r\n       })\r\n"
+                },
+                {
+                    "date": 1638497128210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   // determine whether the user has logged in\r\n   // f5回到首页？\r\n   const hasToken = getToken()\r\n   if (hasToken) {\r\n-    if (to.path === '/login') {\r\n+    if (to.path === 'login') {\r\n       // if is logged in, redirect to the home page\r\n       next({\r\n         path: '/'\r\n       })\r\n"
+                },
+                {
+                    "date": 1638497138162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n   // determine whether the user has logged in\r\n   // f5回到首页？\r\n   const hasToken = getToken()\r\n   if (hasToken) {\r\n-    if (to.path === 'login') {\r\n+    if (to.path === '/login') {\r\n       // if is logged in, redirect to the home page\r\n       next({\r\n         path: '/'\r\n       })\r\n"
+                }
+            ],
+            "date": 1637633629005,
+            "name": "Commit-0",
+            "content": "/*\r\n * @Descripttion: \r\n * @version: \r\n * @Author: Bing\r\n * @Date: 2020-10-21 09:13:29\r\n * @LastEditors: sueRimn\r\n * @LastEditTime: 2021-11-22 16:50:07\r\n */\r\nimport router from './router'\r\nimport store from './store'\r\nimport {\r\n  Message\r\n} from 'element-ui'\r\nimport NProgress from 'nprogress' // progress bar\r\nimport 'nprogress/nprogress.css' // progress bar style\r\nimport {\r\n  getToken\r\n} from '@/utils/auth' // get token from cookie\r\n// import getPageTitle from '@/utils/get-page-title'\r\nimport i18n from './languages'\r\n// var Base64 = require('js-base64').Base64\r\nNProgress.configure({\r\n  showSpinner: false\r\n}) // NProgress Configuration\r\n\r\nconst whiteList = ['/login'] // no redirect whitelist\r\n\r\nrouter.beforeEach(async (to, from, next) => {\r\n  // start progress bar\r\n  NProgress.start()\r\n  // set page title\r\n  document.title = i18n.t('Title') // getPageTitle(to.meta.title)\r\n  // determine whether the user has logged in\r\n  // f5回到首页？\r\n  const hasToken = getToken()\r\n  if (hasToken) {\r\n    console.log(11112)\r\n    if (to.path === '/login') {\r\n      // if is logged in, redirect to the home page\r\n      next({\r\n        path: '/'\r\n      })\r\n      NProgress.done()\r\n    } else {\r\n      const hasRights = store.getters.userrights && store.getters.userrights !== '' // store.getters.userrights > 0     \r\n      if (hasRights) {\r\n        next()\r\n      } else {\r\n        try {\r\n          // get user info\r\n          // console.log(window.location.href, window.location.search)\r\n          var rights = ''\r\n\r\n          rights = {\r\n            username: 'admin'\r\n          }\r\n\r\n          const routertest = await store.dispatch('rights/generateRoutes', rights)\r\n          router.addRoutes(routertest)\r\n          // 解决f5刷新回到首页与路由权限404问题\r\n          if (from.path === '/login') {\r\n            next({\r\n              ...to,\r\n              name: 'Dashboard'\r\n            })\r\n          } else {\r\n            next({\r\n              ...to,\r\n              replace: true\r\n            })\r\n          }\r\n        } catch (error) {\r\n          // remove token and go to login page to re-login\r\n          await store.dispatch('user/resetToken')\r\n          Message.error('generateRoutes error')\r\n          // next(`/login?redirect=${to.path}`)  此行会导致输入错误的url后登陆异常\r\n          next(`/login`)\r\n          NProgress.done()\r\n        }\r\n      }\r\n    }\r\n  } else {\r\n    /* has no token*/\r\n    if (whiteList.indexOf(to.path) !== -1) {\r\n      // in the free login whitelist, go directly\r\n      next(`/login?redirect=${to.path}`)\r\n    } else {\r\n      // other pages that do not have permission to access are redirected to the login page.\r\n      next(`/login?redirect=${to.path}`)\r\n      NProgress.done()\r\n    }\r\n  }\r\n})\r\n\r\nrouter.afterEach(() => {\r\n  // finish progress bar\r\n  NProgress.done()\r\n})\r\n"
+        }
+    ]
+}

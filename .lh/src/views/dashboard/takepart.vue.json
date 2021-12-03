@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/views/dashboard/takepart.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1637650797478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1637651221952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-  <div id=\"takepart\"></div>\r\n+  <div id=\"takepart\">我是takepart页面</div>\r\n </template>\r\n <script>\r\n export default {\r\n   name: \"takepart\",\r\n"
+                }
+            ],
+            "date": 1637650797478,
+            "name": "Commit-0",
+            "content": "<template>\r\n  <div id=\"takepart\"></div>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: \"takepart\",\r\n  data() {\r\n    return {\r\n      //   tableData: [\r\n      //     {\r\n      //       receiveTime: \"2021-11-23 14:06:47\",\r\n      //       company: \"韵达快递\",\r\n      //       expressNumber: \"5621537125478\",\r\n      //       status: \"未通知\",\r\n      //       receiveName: \"Zora\",\r\n      //       receiveEmail: \"2224374779@qq.com\",\r\n      //       receivePhone: \"18435680572\",\r\n      //       operator: \"王小虎\",\r\n      //       expressLocation: \"北京\",\r\n      //     },\r\n      //     {\r\n      //       receiveTime: \"2021-11-23 14:06:47\",\r\n      //       company: \"韵达快递\",\r\n      //       expressNumber: \"5621537125478\",\r\n      //       status: \"未通知\",\r\n      //       receiveName: \"Zora\",\r\n      //       receiveEmail: \"2224374779@qq.com\",\r\n      //       receivePhone: \"18435680572\",\r\n      //       operator: \"王小虎\",\r\n      //       expressLocation: \"北京\",\r\n      //     },\r\n      //   ],\r\n    };\r\n  },\r\n};\r\n</script>\r\n<style lang=\"scss\">\r\n#takepart {\r\n}\r\n</style>"
+        }
+    ]
+}

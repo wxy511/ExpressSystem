@@ -1,0 +1,57 @@
+$--color-primary:  #0f6349;
+
+.el-button--checkedin {
+    color: #FFF;
+    background-color: #19C096;
+    border-color: #19C096;
+}
+.el-button--checkedout {
+    color: #FFF;
+    background-color: #7C8EA1;
+    border-color: #7C8EA1;
+}
+.el-button--regis {
+    color: #FFF;
+    background-color: #409eff;
+    border-color: #409eff;
+}
+.el-button--approve {
+    color: #FFF;
+    background-color: #409eff;
+    border-color: #409eff;
+}
+.el-button--reject {
+    color: #FFF;
+    background-color: #409eff;
+    border-color: #409eff;
+}
+.el-button--checkedin:hover {
+    color: #FFF;
+    background-color: #32d7ad;
+    border-color: #32d7ad;
+}
+.el-button--checkedout:hover {
+    color: #FFF;
+    background-color: #98a9bc;
+    border-color: #98a9bc;
+}
+.el-button--regis:hover {
+    color: #FFF;
+    background-color: #6cb3fd;
+    border-color: #6cb3fd;
+}
+.el-button--approve:hover {
+    color: #FFF;
+    background-color: #409eff;
+    border-color: #409eff;
+}
+.el-button--reject:hover {
+    color: #FFF;
+    background-color: #409eff;
+    border-color: #409eff;
+}
+.el-button--removelist {
+    background: rgb(240, 249, 235);
+    border-color:  rgb(240, 249, 235);
+    color: #67C23A;
+}
